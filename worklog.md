@@ -83,3 +83,32 @@ Stage Summary:
 - VLM confirms: "high-quality, production-ready educational website" that avoids AI patterns
 - Minor refinements: removed placeholder text, added smooth scroll
 - Final deliverable: Complete premium institutional website for Mubarik Science Academy
+
+---
+Task ID: redesign-v2
+Agent: Main Orchestrator + full-stack-developer subagent
+Task: Major redesign based on user feedback
+
+Work Log:
+- Removed utility bar entirely (phone, email, portals)
+- Made logo larger (70px desktop, 54px mobile) with "Mubarik" in Playfair Display + "School & Academy" subtitle
+- Replaced AI-generated images with real photos from web search (Pakistani classrooms, labs, sports, library, computer lab, science fair, campus)
+- Reduced hero section height to ~60-70vh
+- Added rounded corners throughout (rounded-xl for cards/images, rounded-lg for buttons)
+- Changed fonts to Playfair Display (headings) + Plus Jakarta Sans (body)
+- Redesigned Why Mubarik: 2x2 card grid on white background
+- Redesigned Facilities: 2x2 image+text card grid
+- Redesigned Student Life: 3-column image card grid with gradient overlays
+- Redesigned Admissions: Clean step circle timeline with connecting lines
+- Redesigned News & Events: Card grid with featured item
+- Redesigned Leadership: Card with portrait and cyan-bordered quote
+- Redesigned Admission CTA: Navy background with campus photo overlay
+- Verified on desktop (1440px), tablet (768px), mobile (390px)
+- Confirmed "Mubarik School & Academy" text visible on all screen sizes
+
+Stage Summary:
+- All AI-generated images replaced with real Pakistani educational photos
+- 8 sections completely redesigned with modern card-based layouts
+- Font system upgraded to Playfair Display + Plus Jakarta Sans
+- Rounded corners applied consistently (0.5rem base radius)
+- ESLint clean, no console errors, all images loading correctly

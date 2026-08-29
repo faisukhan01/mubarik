@@ -1,31 +1,40 @@
 export default function NewsEvents() {
-  const featured = {
-    category: 'Admissions',
-    title: 'Admissions Open for the Academic Year 2025–26',
-    date: '15 August 2025',
-    summary: 'Applications are now being accepted for Early Years through Secondary levels at both Mubarik Science Academy and Mubarik Educare School.',
-  };
-
   const newsItems = [
+    {
+      category: 'Admissions',
+      title: 'Admissions Open for the Academic Year 2025–26',
+      date: '15 August 2025',
+      summary: 'Applications are now being accepted for Early Years through Secondary levels at both Mubarik Science Academy and Mubarik Educare School.',
+      featured: true,
+    },
     {
       category: 'Event',
       title: 'Annual Science Exhibition 2025',
       date: '20 July 2025',
+      summary: 'Students showcase innovative science projects, experiments, and research demonstrations.',
+      featured: false,
     },
     {
       category: 'Academic',
       title: 'Mid-Term Examination Schedule Released',
       date: '5 July 2025',
+      summary: 'The examination timetable for mid-term assessments across all levels is now available.',
+      featured: false,
     },
     {
       category: 'Sports',
       title: 'Inter-Class Cricket Tournament Results',
       date: '28 June 2025',
+      summary: 'Congratulations to the winning teams in this year’s inter-class cricket tournament.',
+      featured: false,
     },
   ];
 
+  const featured = newsItems[0];
+  const others = newsItems.slice(1);
+
   return (
-    <section id="news" className="section-padding bg-warm-surface">
+    <section id="news" className="section-padding bg-white">
       <div className="container-site">
         <div className="flex items-end justify-between mb-12">
           <div>
@@ -38,52 +47,61 @@ export default function NewsEvents() {
           </a>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Featured Story */}
-          <div className="lg:col-span-7">
-            <article className="bg-white p-8 sm:p-10 border border-warm-border h-full">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-cyan bg-cyan/8 px-2.5 py-1">
-                  {featured.category}
-                </span>
-                <span className="text-xs text-text-tertiary">{featured.date}</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-serif text-navy mb-3 leading-snug">
-                {featured.title}
-              </h3>
-              <p className="body-text text-sm">
-                {featured.summary}
-              </p>
-              <a href="#" className="link-arrow mt-6 inline-flex">
-                Read More
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </a>
-            </article>
-          </div>
-
-          {/* News List */}
-          <div className="lg:col-span-5">
-            <div className="divide-y divide-warm-border">
-              {newsItems.map((item) => (
-                <article key={item.title} className="py-5 first:pt-0 last:pb-0 group">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-text-tertiary">
-                      {item.category}
-                    </span>
-                    <span className="text-xs text-text-tertiary">{item.date}</span>
-                  </div>
-                  <h4 className="text-sm font-semibold text-navy group-hover:text-cyan transition-colors leading-snug">
-                    <a href="#">{item.title}</a>
-                  </h4>
-                </article>
-              ))}
+        {/* Featured Card - full width on mobile, 2 cols on desktop */}
+        <div className="grid md:grid-cols-3 gap-6 mb-6">
+          <article className="md:col-span-2 border border-warm-border rounded-xl p-7 sm:p-8 hover:shadow-sm transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-cyan bg-cyan/10 px-2.5 py-1 rounded">
+                {featured.category}
+              </span>
+              <span className="text-xs text-text-tertiary">{featured.date}</span>
             </div>
-            <a href="#" className="link-arrow mt-6 sm:hidden inline-flex">
-              View All News
+            <h3 className="text-xl sm:text-2xl text-navy mb-3 leading-snug">
+              {featured.title}
+            </h3>
+            <p className="text-text-secondary text-sm leading-relaxed">
+              {featured.summary}
+            </p>
+            <a href="#" className="link-arrow mt-5 inline-flex">
+              Read More
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-          </div>
+          </article>
+
+          {/* First regular card */}
+          <article className="border border-warm-border rounded-xl p-6 hover:shadow-sm transition-shadow">
+            <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-text-tertiary mb-3 block">
+              {others[0].category}
+            </span>
+            <h4 className="text-base font-semibold text-navy mb-2 leading-snug">
+              <a href="#" className="hover:text-cyan transition-colors">{others[0].title}</a>
+            </h4>
+            <span className="text-xs text-text-tertiary">{others[0].date}</span>
+          </article>
         </div>
+
+        {/* Remaining cards - 3 cols on desktop */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {others.slice(1).map((item) => (
+            <article key={item.title} className="border border-warm-border rounded-xl p-6 hover:shadow-sm transition-shadow">
+              <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-text-tertiary mb-3 block">
+                {item.category}
+              </span>
+              <h4 className="text-base font-semibold text-navy mb-2 leading-snug">
+                <a href="#" className="hover:text-cyan transition-colors">{item.title}</a>
+              </h4>
+              <p className="text-text-secondary text-xs leading-relaxed mb-3">
+                {item.summary}
+              </p>
+              <span className="text-xs text-text-tertiary">{item.date}</span>
+            </article>
+          ))}
+        </div>
+
+        <a href="#" className="link-arrow mt-8 sm:hidden inline-flex">
+          View All News
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </section>
   );

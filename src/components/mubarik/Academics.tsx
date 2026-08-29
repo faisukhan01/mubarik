@@ -41,15 +41,20 @@ export default function Academics() {
           {/* Right Column - Programme List */}
           <div className="lg:col-span-8">
             <div className="divide-y divide-warm-border">
-              {programmes.map((programme) => (
+              {programmes.map((programme, index) => (
                 <div key={programme.level} className="py-6 first:pt-0 last:pb-0 group">
-                  <div className="flex items-start gap-6">
-                    <span className="text-xs font-semibold text-text-tertiary tracking-wider uppercase mt-0.5 w-28 flex-shrink-0">
-                      {programme.level}
+                  <div className="flex items-start gap-5">
+                    <span className="text-xs font-bold text-navy/25 mt-0.5 w-5 flex-shrink-0">
+                      {String(index + 1).padStart(2, '0')}
                     </span>
-                    <p className="body-text text-sm leading-relaxed">
-                      {programme.description}
-                    </p>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-navy mb-1">
+                        {programme.level}
+                      </h3>
+                      <p className="text-text-secondary text-sm leading-relaxed">
+                        {programme.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}

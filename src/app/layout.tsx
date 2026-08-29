@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Manrope, DM_Serif_Display, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dm-serif",
-  weight: ["400"],
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -43,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${dmSerif.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${jakarta.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

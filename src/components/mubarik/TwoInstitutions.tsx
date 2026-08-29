@@ -11,11 +11,11 @@ export default function TwoInstitutions() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-0">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Science Academy */}
-          <div className="bg-white p-8 sm:p-10 md:p-12 border border-warm-border md:border-r-0">
+          <div className="bg-white p-8 sm:p-10 border border-warm-border rounded-xl">
             <span className="section-label mb-4 block text-navy">Division I</span>
-            <h3 className="font-serif text-2xl sm:text-[1.75rem] text-navy mb-4 leading-tight">
+            <h3 className="text-2xl sm:text-[1.75rem] text-navy mb-4 leading-tight">
               Mubarik Science Academy
             </h3>
             <p className="body-text mb-6">
@@ -38,9 +38,9 @@ export default function TwoInstitutions() {
           </div>
 
           {/* Educare School */}
-          <div className="bg-white p-8 sm:p-10 md:p-12 border border-warm-border">
+          <div className="bg-white p-8 sm:p-10 border border-warm-border rounded-xl">
             <span className="section-label mb-4 block text-brand-green">Division II</span>
-            <h3 className="font-serif text-2xl sm:text-[1.75rem] text-navy mb-4 leading-tight">
+            <h3 className="text-2xl sm:text-[1.75rem] text-navy mb-4 leading-tight">
               Mubarik Educare School
             </h3>
             <p className="body-text mb-6">

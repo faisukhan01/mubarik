@@ -10,31 +10,35 @@ const steps = [
 
 export default function Admissions() {
   return (
-    <section id="admissions" className="section-padding bg-white">
+    <section id="admissions" className="section-padding bg-warm-surface">
       <div className="container-site">
-        <div className="mb-14">
+        <div className="text-center mb-14">
           <span className="section-label mb-4 block">Admissions</span>
           <h2 className="editorial-heading text-3xl sm:text-4xl">
             The Admission Journey
           </h2>
-          <p className="body-text mt-4 max-w-xl">
+          <p className="body-text mt-4 max-w-xl mx-auto">
             We aim to make the admission process straightforward and transparent for parents. Here is what to expect.
           </p>
         </div>
 
-        {/* Steps Timeline */}
-        <div className="relative">
+        {/* Steps - Horizontal on desktop, vertical on mobile */}
+        <div className="relative max-w-3xl mx-auto">
           {/* Horizontal line - desktop */}
-          <div className="hidden md:block absolute top-6 left-[calc(10%)] right-[calc(10%)] h-px bg-warm-border" />
+          <div className="hidden md:block absolute top-5 left-[calc(10%+14px)] right-[calc(10%+14px)] h-px bg-warm-border" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
-            {steps.map((step) => (
-              <div key={step.num} className="relative">
-                <div className="relative z-10 w-12 h-12 flex items-center justify-center border-2 border-navy bg-white text-navy font-serif text-lg mb-4">
-                  {step.num}
+          {/* Vertical line - mobile */}
+          <div className="md:hidden absolute top-5 left-[14px] bottom-5 w-px bg-warm-border" />
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+            {steps.map((step, index) => (
+              <div key={step.num} className="relative md:text-center">
+                {/* Circle */}
+                <div className="relative z-10 w-7 h-7 flex items-center justify-center border-2 border-navy bg-warm-surface text-navy text-xs font-semibold mb-3 md:mb-4 md:mx-auto">
+                  {index + 1}
                 </div>
                 <h3 className="font-semibold text-navy text-sm mb-1.5">{step.title}</h3>
-                <p className="text-text-secondary text-xs leading-relaxed">
+                <p className="text-text-secondary text-xs leading-relaxed ml-10 md:ml-0">
                   {step.description}
                 </p>
               </div>
@@ -46,7 +50,7 @@ export default function Admissions() {
         <div className="mt-16 text-center">
           <Link
             href="#"
-            className="inline-flex items-center px-8 py-3.5 bg-navy text-white text-sm font-semibold tracking-wide hover:bg-navy-light transition-colors"
+            className="inline-flex items-center px-8 py-3.5 bg-navy text-white text-sm font-semibold tracking-wide hover:bg-navy-light transition-colors rounded-lg"
           >
             Begin Your Admission Journey
             <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>

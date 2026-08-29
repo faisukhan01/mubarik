@@ -23,21 +23,26 @@ export default function WhyMubarik() {
   ];
 
   return (
-    <section className="section-padding bg-navy text-white">
+    <section className="section-padding bg-white">
       <div className="container-site">
         <div className="mb-14">
-          <span className="section-label text-cyan mb-4 block">Why Mubarik</span>
-          <h2 className="editorial-heading text-3xl sm:text-4xl text-white">
+          <span className="section-label mb-4 block">Why Mubarik</span>
+          <h2 className="editorial-heading text-3xl sm:text-4xl">
             What Distinguishes Us
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10 lg:gap-x-20">
+        <div className="grid sm:grid-cols-2 gap-6">
           {strengths.map((item) => (
-            <div key={item.number} className="group">
-              <span className="block text-cyan/40 text-4xl font-serif mb-3">{item.number}</span>
-              <h3 className="text-lg font-semibold text-white mb-2.5 tracking-tight">{item.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">
+            <div
+              key={item.number}
+              className="bg-warm-surface p-8 sm:p-10 rounded-xl"
+            >
+              <span className="block text-4xl text-navy/20 mb-3" style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}>
+                {item.number}
+              </span>
+              <h3 className="text-lg font-semibold text-navy mb-2.5 tracking-tight">{item.title}</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">
                 {item.description}
               </p>
             </div>
