@@ -18,17 +18,20 @@ export default function Footer() {
           {/* Branding column */}
           <div className="sm:col-span-2 lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <Image
-                src="/mubarik-logo.png"
-                alt="Mubarik"
-                width={56}
-                height={56}
-                className="w-14 h-14 brightness-0 invert"
-              />
+              {/* White circular background behind logo for visibility */}
+              <div className="bg-white rounded-xl p-2 flex-shrink-0">
+                <Image
+                  src="/mubarik-logo.png"
+                  alt="Mubarik"
+                  width={64}
+                  height={64}
+                  className="w-16 h-16"
+                />
+              </div>
               <div className="flex flex-col leading-tight">
                 <span
                   className="text-[1.05rem] font-semibold tracking-tight text-white"
-                  style={{ fontFamily: 'var(--font-dm-serif), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
                 >
                   Mubarik
                 </span>
@@ -37,7 +40,10 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-white/30 text-sm leading-relaxed max-w-xs mb-8">
+            <p
+              className="text-white/30 text-sm leading-relaxed max-w-xs mb-8"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               A committed educational institution providing quality education
               with a focus on academic excellence and character development.
             </p>
@@ -68,7 +74,10 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2">
-            <h4 className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5">
+            <h4
+              className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -87,10 +96,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h4 className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5">
+            <h4
+              className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               Contact
             </h4>
-            <ul className="space-y-3 text-sm text-white/30">
+            <ul
+              className="space-y-3 text-sm text-white/30"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               <li>
                 <a href="tel:+923001234567" className="hover:text-white transition-colors duration-200">
                   +92 300 123 4567
@@ -109,7 +124,10 @@ export default function Footer() {
 
           {/* Schools */}
           <div className="lg:col-span-3">
-            <h4 className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5">
+            <h4
+              className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               Schools
             </h4>
             <ul className="space-y-3 text-sm text-white/30">

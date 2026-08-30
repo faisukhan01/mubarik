@@ -48,13 +48,20 @@ export default function Header() {
         <div className="container-site flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
           <Link href="#" className="flex items-center gap-3 flex-shrink-0 z-10">
-            <div className={`rounded-lg ${scrolled ? 'bg-transparent' : 'bg-white p-1.5 shadow-lg shadow-black/30'}`}>
+            <div
+              className={`rounded-xl transition-all duration-300 ${
+                scrolled
+                  ? 'bg-transparent p-0'
+                  : 'bg-white/95 backdrop-blur-sm p-2 shadow-lg shadow-black/20'
+              }`
+            }
+            >
               <Image
                 src="/mubarik-logo.png"
                 alt="Mubarik Science Academy"
                 width={48}
                 height={48}
-                className={`w-9 h-9 lg:w-10 lg:h-10 transition-all duration-300`}
+                className="w-10 h-10 lg:w-11 lg:h-11 transition-all duration-300"
                 priority
               />
             </div>
@@ -63,7 +70,7 @@ export default function Header() {
                 className={`text-[1.05rem] lg:text-[1.15rem] font-semibold tracking-tight transition-colors duration-300 ${
                   scrolled ? 'text-navy' : 'text-white'
                 } ${!scrolled ? 'drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)]' : ''}`}
-                style={{ fontFamily: 'var(--font-dm-serif), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
               >
                 Mubarik
               </span>
@@ -71,6 +78,7 @@ export default function Header() {
                 className={`text-[0.6rem] font-semibold tracking-[0.15em] uppercase transition-colors duration-300 ${
                   scrolled ? 'text-gold' : 'text-white/70'
                 }`}
+                style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
               >
                 School & Academy
               </span>
@@ -88,6 +96,7 @@ export default function Header() {
                     ? 'text-text-secondary hover:text-navy'
                     : 'text-white/85 hover:text-white'
                 }`}
+                style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
               >
                 {item.label}
                 <span
@@ -107,6 +116,7 @@ export default function Header() {
                   ? 'bg-navy text-white hover:bg-navy-light shadow-sm'
                   : 'bg-white text-navy hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.25)]'
               }`}
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
             >
               Apply Now
             </Link>
@@ -141,36 +151,45 @@ export default function Header() {
 
       {/* Hero with building image */}
       <section className="relative min-h-[100vh] flex items-end overflow-hidden">
-        {/* Building background — centered on mobile, slightly right on desktop */}
+        {/* Building background — mobile: show upper-center of building, desktop: shifted right */}
         <Image
           src="/images/mubarik-building.png"
           alt="Mubarik Science Academy Campus"
           fill
-          className="object-cover object-[78%_40%] sm:object-[58%_center] lg:object-[55%_center]"
+          className="object-cover object-[70%_45%] lg:object-[55%_center]"
           priority
           sizes="100vw"
         />
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark via-navy-dark/50 to-navy-dark/20" />
-        {/* Left-side dark overlay for desktop text readability — hidden on mobile so building is centered */}
-        <div className="absolute inset-0 sm:bg-gradient-to-r sm:from-navy-dark/70 sm:via-navy-dark/30 sm:to-transparent bg-gradient-to-b from-navy-dark/50 via-navy-dark/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/30 via-transparent to-navy-dark/80" />
+
+        {/* Single refined gradient — bottom-to-top for mobile readability, subtle on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/40 to-navy-dark/20" />
+        {/* Desktop left-side overlay for text readability */}
+        <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-navy-dark/70 via-navy-dark/20 to-transparent" />
 
         {/* Hero content */}
         <div className="relative z-10 container-site pb-20 lg:pb-28 pt-32">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-px bg-gold" />
-              <span className="text-gold-light text-[0.7rem] font-semibold tracking-[0.2em] uppercase">
+              <span
+                className="text-gold-light text-[0.7rem] font-semibold tracking-[0.2em] uppercase"
+                style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              >
                 Mubarik Science Academy
               </span>
             </div>
-            <h1 className="text-white text-[2.5rem] sm:text-[3.25rem] lg:text-6xl xl:text-[4.25rem] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-dm-serif), Georgia, serif' }}>
+            <h1
+              className="text-white text-[2.5rem] sm:text-[3.25rem] lg:text-6xl xl:text-[4.25rem] leading-[1.05] mb-6"
+              style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+            >
               Building Minds.
               <br />
               <span className="text-gold-light">Shaping Futures.</span>
             </h1>
-            <p className="text-white/60 text-[0.95rem] lg:text-base leading-relaxed max-w-lg mb-10">
+            <p
+              className="text-white/60 text-[0.95rem] lg:text-base leading-relaxed max-w-lg mb-10"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+            >
               A committed educational institution dedicated to academic
               excellence, scientific enquiry, and the development of
               disciplined, capable young individuals.
@@ -179,13 +198,23 @@ export default function Header() {
               <Link
                 href="#about"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gold text-white text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_24px_rgba(46,139,87,0.35)]"
+                style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
               >
                 Discover More
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
               <Link
                 href="#admissions"
                 className="inline-flex items-center px-7 py-3.5 border border-white/25 text-white text-sm font-medium rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
               >
                 Admissions
               </Link>
@@ -195,7 +224,12 @@ export default function Header() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-40">
-          <span className="text-white text-[0.6rem] tracking-[0.2em] uppercase font-medium">Scroll</span>
+          <span
+            className="text-white text-[0.6rem] tracking-[0.2em] uppercase font-medium"
+            style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+          >
+            Scroll
+          </span>
           <div className="w-px h-8 bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
@@ -214,7 +248,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
                 className="border-b border-warm-border py-4 text-xl font-medium text-navy hover:text-gold transition-colors"
-                style={{ fontFamily: 'var(--font-dm-serif), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
               >
                 {item.label}
               </Link>
@@ -225,6 +259,7 @@ export default function Header() {
               href="#admissions"
               onClick={() => setMobileOpen(false)}
               className="block w-full text-center px-6 py-4 bg-navy text-white text-sm font-semibold tracking-wide hover:bg-navy-light transition-colors rounded-xl"
+              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
             >
               Apply for Admission
             </Link>

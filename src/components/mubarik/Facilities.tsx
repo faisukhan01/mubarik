@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { RevealSection } from '@/hooks/use-reveal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -28,123 +28,174 @@ const facilities = [
   },
 ];
 
+const INTERVAL = 5000;
+
 export default function Facilities() {
   const [active, setActive] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [progress, setProgress] = useState(0);
   const f = facilities[active];
 
-  const goTo = (index: number) => {
-    if (isAnimating || index === active) return;
-    setIsAnimating(true);
-    setActive(index);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+  const goTo = useCallback(
+    (index: number) => {
+      if (isTransitioning || index === active) return;
+      setIsTransitioning(true);
+      setProgress(0);
+      setActive(index);
+      setTimeout(() => setIsTransitioning(false), 600);
+    },
+    [isTransitioning, active]
+  );
 
-  // Auto-advance
+  // Auto-advance with progress bar
   useEffect(() => {
-    const timer = setInterval(() => {
+    const startTime = Date.now();
+    const frame = requestAnimationFrame(() => setProgress(0));
+    const progressInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      setProgress(Math.min((elapsed / INTERVAL) * 100, 100));
+    }, 50);
+    const autoTimer = setTimeout(() => {
       goTo((active + 1) % facilities.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [active]);
+    }, INTERVAL);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(progressInterval);
+      clearTimeout(autoTimer);
+    };
+  }, [active, goTo]);
 
   return (
     <section id="campus-life" className="section-padding bg-warm-surface">
       <RevealSection className="container-site">
-        <div className="flex items-end justify-between mb-10 lg:mb-14">
+        {/* Section header */}
+        <div className="flex items-end justify-between mb-8 lg:mb-10">
           <div>
-            <span className="section-label mb-4 block reveal">Campus</span>
-            <h2 className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1">
+            <span className="section-label mb-3 block reveal">Campus</span>
+            <h2
+              className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1"
+            >
               Our <span className="text-gold">Facilities</span>
             </h2>
           </div>
         </div>
 
-        {/* Image showcase */}
-        <div className="relative reveal reveal-delay-2">
-          <div className="relative aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/7] rounded-2xl overflow-hidden">
-            <Image
-              key={f.image}
-              src={f.image}
-              alt={f.title}
-              fill
-              className={`object-cover transition-all duration-700 ${
-                isAnimating ? 'opacity-0 scale-[1.03]' : 'opacity-100 scale-100'
+        {/* Pill tab navigation — ABOVE the image */}
+        <div
+          className="flex items-center gap-2 mb-5 overflow-x-auto pb-1 reveal reveal-delay-2"
+          style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+        >
+          {facilities.map((fac, i) => (
+            <button
+              key={fac.title}
+              onClick={() => goTo(i)}
+              className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-400 cursor-pointer ${
+                active === i
+                  ? 'bg-navy text-white shadow-lg shadow-navy/20'
+                  : 'bg-white text-text-secondary hover:text-navy border border-warm-border hover:border-navy/20 hover:shadow-md'
               }`}
-              sizes="100vw"
-              priority={active === 0}
-            />
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/70 via-navy-dark/10 to-transparent" />
+            >
+              {fac.title}
+            </button>
+          ))}
+        </div>
 
-            {/* Content overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 lg:p-10">
-              <div className="flex items-end justify-between gap-6">
-                <div className="max-w-lg">
-                  <h3
-                    className="text-white text-xl sm:text-2xl lg:text-3xl mb-2"
-                    style={{
-                      fontFamily: 'var(--font-dm-serif), Georgia, serif',
-                    }}
-                  >
-                    {f.title}
-                  </h3>
-                  <p className="text-white/60 text-sm sm:text-[0.9rem] leading-relaxed">
-                    {f.desc}
-                  </p>
-                </div>
-                <div className="hidden sm:flex items-center gap-2 flex-shrink-0">
-                  <button
-                    onClick={() => goTo((active - 1 + facilities.length) % facilities.length)}
-                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all duration-300"
-                    aria-label="Previous"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button
-                    onClick={() => goTo((active + 1) % facilities.length)}
-                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all duration-300"
-                    aria-label="Next"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Facility name tabs below image */}
-          <div className="flex items-center gap-2 mt-5 overflow-x-auto pb-1">
+        {/* Image showcase */}
+        <div className="relative reveal reveal-delay-3">
+          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:max-h-[440px] rounded-2xl overflow-hidden bg-navy-dark/5">
+            {/* Crossfade: render both current and next image */}
             {facilities.map((fac, i) => (
-              <button
-                key={fac.title}
-                onClick={() => goTo(i)}
-                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+              <div
+                key={fac.image}
+                className={`absolute inset-0 transition-all duration-700 ease-out ${
                   active === i
-                    ? 'bg-navy text-white shadow-md'
-                    : 'bg-white text-text-secondary hover:bg-white/80 border border-warm-border'
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-[1.04]'
                 }`}
               >
-                {fac.title}
-              </button>
+                <Image
+                  src={fac.image}
+                  alt={fac.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 1200px"
+                  priority={i === 0}
+                />
+              </div>
             ))}
+
+            {/* Subtle vignette at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Progress dots */}
-          <div className="flex items-center justify-center gap-2 mt-4">
-            {facilities.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  active === i
-                    ? 'w-8 bg-gold'
-                    : 'w-1.5 bg-warm-border hover:bg-text-tertiary'
-                }`}
-                aria-label={`Go to facility ${i + 1}`}
-              />
-            ))}
+          {/* Progress bar */}
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/5 rounded-b-2xl overflow-hidden">
+            <div
+              className="h-full bg-gold rounded-full transition-none"
+              style={{ width: `${progress}%` }}
+            />
           </div>
+        </div>
+
+        {/* Info bar below image */}
+        <div
+          className="mt-5 bg-white rounded-2xl border border-warm-border p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 reveal reveal-delay-4"
+          style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+        >
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 mb-1.5">
+              <div className="gold-line flex-shrink-0" />
+              <h3
+                className="text-navy text-lg sm:text-xl font-semibold leading-snug truncate"
+                style={{
+                  fontFamily:
+                    'var(--font-playfair), Georgia, serif',
+                }}
+              >
+                {f.title}
+              </h3>
+            </div>
+            <p className="body-text text-[0.85rem] leading-relaxed line-clamp-2">
+              {f.desc}
+            </p>
+          </div>
+
+          {/* Navigation arrows */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button
+              onClick={() =>
+                goTo((active - 1 + facilities.length) % facilities.length)
+              }
+              className="w-10 h-10 rounded-full border border-warm-border flex items-center justify-center text-text-secondary hover:bg-navy hover:text-white hover:border-navy transition-all duration-300 cursor-pointer"
+              aria-label="Previous facility"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => goTo((active + 1) % facilities.length)}
+              className="w-10 h-10 rounded-full border border-warm-border flex items-center justify-center text-text-secondary hover:bg-navy hover:text-white hover:border-navy transition-all duration-300 cursor-pointer"
+              aria-label="Next facility"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex items-center justify-center gap-2.5 mt-5 reveal reveal-delay-5">
+          {facilities.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`h-[6px] rounded-full transition-all duration-500 cursor-pointer ${
+                active === i
+                  ? 'w-8 bg-gold'
+                  : 'w-[6px] bg-warm-border hover:bg-text-tertiary'
+              }`}
+              aria-label={`Go to facility ${i + 1}`}
+            />
+          ))}
         </div>
       </RevealSection>
     </section>

@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Outfit, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const dmSerif = DM_Serif_Display({
-  variable: "--font-serif",
-  weight: ["400"],
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
 });
 
-const outfit = Outfit({
-  variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -52,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSerif.variable} ${outfit.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${jakarta.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

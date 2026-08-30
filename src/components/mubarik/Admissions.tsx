@@ -2,77 +2,170 @@
 
 import Link from 'next/link';
 import { RevealSection } from '@/hooks/use-reveal';
-import { Search, ListChecks, FileText, ClipboardCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 
 const steps = [
-  { num: '01', title: 'Explore', desc: 'Learn about our programmes and find the right fit for your child.', icon: Search },
-  { num: '02', title: 'Choose', desc: 'Select the appropriate division and level for enrolment.', icon: ListChecks },
-  { num: '03', title: 'Apply', desc: 'Complete the admission form and submit required documents.', icon: FileText },
-  { num: '04', title: 'Assessment', desc: 'Complete an age-appropriate assessment to evaluate readiness.', icon: ClipboardCheck },
-  { num: '05', title: 'Enroll', desc: 'Complete enrollment and your child joins the Mubarik family.', icon: CheckCircle2 },
+  { num: '01', title: 'Explore', desc: 'Learn about our programmes and find the right fit for your child.' },
+  { num: '02', title: 'Choose', desc: 'Select the appropriate division and level for enrolment.' },
+  { num: '03', title: 'Apply', desc: 'Complete the admission form and submit required documents.' },
+  { num: '04', title: 'Assessment', desc: 'Complete an age-appropriate assessment to evaluate readiness.' },
+  { num: '05', title: 'Enroll', desc: 'Complete enrollment and your child joins the Mubarik family.' },
 ];
 
 export default function Admissions() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
-    <section id="admissions" className="section-padding bg-white">
-      <RevealSection className="container-site">
-        <div className="text-center mb-14 lg:mb-16">
-          <span className="section-label mb-4 block reveal">Admissions</span>
+    <section id="admissions" className="section-padding bg-white relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-navy/[0.015] blur-3xl pointer-events-none" />
+
+      <RevealSection className="container-site relative z-10">
+        {/* Section header */}
+        <div className="text-center mb-14 lg:mb-20">
+          <span className="section-label mb-3 block reveal">Admissions</span>
           <h2 className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1">
             The Admission <span className="text-gold">Journey</span>
           </h2>
-          <p className="body-text mt-4 max-w-md mx-auto reveal reveal-delay-2">
+          <p
+            className="body-text mt-4 max-w-md mx-auto reveal reveal-delay-2"
+          >
             A straightforward and transparent process designed for parents.
           </p>
         </div>
 
-        {/* Step cards - horizontal on desktop, vertical on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-0">
+        {/* Desktop: Horizontal timeline */}
+        <div className="hidden lg:block reveal reveal-delay-2">
+          <div className="relative flex items-start justify-between">
+            {/* Connecting line */}
+            <div className="absolute top-[28px] left-[calc(10%+14px)] right-[calc(10%+14px)] h-[2px] bg-warm-border" />
+
+            {steps.map((step, i) => {
+              const isActive = hovered === i;
+              return (
+                <div
+                  key={step.num}
+                  className="relative flex-1 flex flex-col items-center"
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  {/* Step circle */}
+                  <div
+                    className={`relative z-10 w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all duration-500 cursor-default ${
+                      isActive
+                        ? 'bg-gold border-gold text-white scale-110 shadow-lg shadow-gold/30'
+                        : 'bg-white border-navy/20 text-navy hover:border-gold hover:text-gold'
+                    }`}
+                    style={{
+                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                    }}
+                  >
+                    <span className="text-sm font-bold">{step.num}</span>
+                  </div>
+
+                  {/* Content below circle */}
+                  <div className="mt-5 text-center px-2 max-w-[160px]">
+                    <h3
+                      className={`text-navy text-base font-semibold mb-1.5 transition-colors duration-300 ${
+                        isActive ? 'text-gold' : ''
+                      }`}
+                      style={{
+                        fontFamily: 'var(--font-playfair), Georgia, serif',
+                      }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      className={`text-xs leading-relaxed transition-all duration-500 ${
+                        isActive
+                          ? 'text-text-secondary opacity-100 max-h-20'
+                          : 'text-text-tertiary opacity-70 max-h-0 overflow-hidden'
+                      }`}
+                      style={{
+                        fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                      }}
+                    >
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile/Tablet: Vertical timeline */}
+        <div className="lg:hidden space-y-0 reveal reveal-delay-2">
           {steps.map((step, i) => {
-            const Icon = step.icon;
+            const isActive = hovered === i;
+            const isLast = i === steps.length - 1;
             return (
               <div
                 key={step.num}
-                className={`relative reveal reveal-delay-${i + 1}`}
+                className="relative flex gap-5 pb-8"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
               >
-                <div className="group relative bg-warm-surface hover:bg-white rounded-2xl p-6 lg:p-5 border border-transparent hover:border-warm-border hover:shadow-xl hover:shadow-navy/[0.06] transition-all duration-400 lg:border-0 lg:rounded-none lg:shadow-none lg:hover:bg-warm-surface lg:hover:shadow-none">
-                  {/* Step number badge */}
-                  <div className="w-10 h-10 rounded-xl bg-navy text-white flex items-center justify-center text-sm font-bold mb-4 group-hover:bg-gold group-hover:text-navy-dark transition-all duration-300">
-                    {i + 1}
+                {/* Vertical line + circle column */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div
+                    className={`w-11 h-11 rounded-full flex items-center justify-center border-2 transition-all duration-500 ${
+                      isActive
+                        ? 'bg-gold border-gold text-white scale-110 shadow-lg shadow-gold/30'
+                        : 'bg-white border-navy/20 text-navy'
+                    }`}
+                    style={{
+                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                    }}
+                  >
+                    <span className="text-xs font-bold">{step.num}</span>
                   </div>
+                  {!isLast && (
+                    <div className="w-[2px] flex-1 bg-warm-border mt-2" />
+                  )}
+                </div>
 
-                  <div className="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 lg:hidden">
-                    <Icon size={20} strokeWidth={1.5} />
-                  </div>
-
-                  <h3 className="font-semibold text-navy text-[0.95rem] mb-1.5">
+                {/* Content */}
+                <div className="pt-1.5 pb-4">
+                  <h3
+                    className={`text-navy text-base font-semibold mb-1 transition-colors duration-300 ${
+                      isActive ? 'text-gold' : ''
+                    }`}
+                    style={{
+                      fontFamily: 'var(--font-playfair), Georgia, serif',
+                    }}
+                  >
                     {step.title}
                   </h3>
-                  <p className="text-text-tertiary text-xs sm:text-sm leading-relaxed">
+                  <p
+                    className="text-text-tertiary text-sm leading-relaxed"
+                    style={{
+                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                    }}
+                  >
                     {step.desc}
                   </p>
                 </div>
-
-                {/* Connector arrow on desktop */}
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:flex absolute top-1/2 -right-3 z-10">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-warm-border">
-                      <path d="M2 6h8M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
 
-        <div className="mt-14 text-center reveal reveal-delay-3">
+        {/* CTA Button */}
+        <div className="mt-14 lg:mt-20 text-center reveal reveal-delay-3">
           <Link
             href="#"
-            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-navy text-white text-sm font-semibold tracking-wide rounded-xl hover:bg-navy-light transition-all duration-300 shadow-lg shadow-navy/15"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-navy to-navy-light text-white text-sm font-semibold tracking-wide rounded-xl hover:shadow-xl hover:shadow-navy/25 transition-all duration-400"
+            style={{
+              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+            }}
           >
             Begin Your Admission Journey
-            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <ArrowRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </Link>
         </div>
       </RevealSection>
