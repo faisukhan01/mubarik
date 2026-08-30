@@ -156,12 +156,9 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* ====== MOBILE OVERLAY: Top clear for building, bottom solid dark for text ====== */}
+        {/* ====== MOBILE: NO dark overlay — just a very subtle top tint for nav readability ====== */}
         <div className="absolute inset-0 lg:hidden">
-          {/* Main gradient: top clear for building, smooth transition, bottom deeply dark */}
-          <div className="absolute inset-0 hero-mobile-gradient" />
-          {/* Vignette for depth */}
-          <div className="absolute inset-0 hero-vignette" />
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-navy-dark/30 to-transparent" />
         </div>
 
         {/* ====== DESKTOP OVERLAY ====== */}
@@ -170,57 +167,52 @@ export default function Header() {
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-transparent to-navy-dark/30" />
         </div>
 
-        {/* ====== MOBILE HERO CONTENT — vertically centered ====== */}
-        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col justify-center px-6 pt-16 pb-8">
-          <div className="text-center">
-            {/* Elegant label with decorative lines */}
-            <div className="inline-flex items-center gap-3 mb-5">
-              <div className="w-5 h-px bg-gradient-to-r from-transparent to-gold-light/80" />
+        {/* ====== MOBILE HERO CONTENT — frosted glass panel ====== */}
+        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col justify-end px-5 pb-10 pt-20">
+          {/* Frosted glass card behind text */}
+          <div className="hero-glass-panel rounded-3xl px-6 py-8 sm:px-8 sm:py-10">
+            {/* Label */}
+            <div className="inline-flex items-center gap-2.5 mb-4">
+              <div className="w-5 h-[1.5px] bg-gold-light/70" />
               <span
-                className="text-gold-light text-[0.6rem] font-semibold tracking-[0.16em] uppercase"
+                className="text-gold-light text-[0.58rem] font-semibold tracking-[0.18em] uppercase"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Mubarik Science Academy
               </span>
-              <div className="w-5 h-px bg-gradient-to-l from-transparent to-gold-light/80" />
             </div>
 
-            {/* Main heading — large, bold, with premium shadow */}
+            {/* Heading — clean, bold, premium */}
             <h1
-              className="text-white text-[2.5rem] sm:text-[2.8rem] font-extrabold leading-[1.05] mb-4 tracking-tight hero-heading-shadow"
+              className="text-white text-[2.2rem] sm:text-[2.6rem] font-extrabold leading-[1.1] mb-3"
               style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
             >
               Building Minds.
               <br />
-              <span className="hero-accent-text">Shaping Futures.</span>
+              <span className="text-gold-light">Shaping Futures.</span>
             </h1>
 
-            {/* Gold accent divider */}
-            <div className="flex justify-center mb-5">
-              <div className="w-12 h-[2px] rounded-full bg-gradient-to-r from-transparent via-gold-light/70 to-transparent" />
-            </div>
-
-            {/* Short tagline */}
+            {/* Tagline */}
             <p
-              className="text-white/65 text-[0.82rem] leading-relaxed max-w-[280px] mx-auto mb-7 font-medium"
+              className="text-white/60 text-[0.8rem] leading-relaxed max-w-[280px] mb-6"
               style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               Academic excellence meets character development in a nurturing environment.
             </p>
 
-            {/* Buttons — full width, stacked */}
-            <div className="flex flex-col gap-3 max-w-[280px] mx-auto">
+            {/* Buttons — side by side */}
+            <div className="flex gap-3">
               <Link
                 href="#about"
-                className="group inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 bg-gradient-to-r from-gold-dark to-gold text-white text-[0.85rem] font-bold tracking-wide rounded-2xl hover:from-gold hover:to-gold-light transition-all duration-300 shadow-[0_6px_28px_rgba(46,139,87,0.4)] active:scale-[0.98]"
+                className="group flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-gold text-white text-[0.8rem] font-bold tracking-wide rounded-2xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_20px_rgba(46,139,87,0.35)] active:scale-[0.97]"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
-                Discover More
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                Discover
+                <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
               <Link
                 href="#admissions"
-                className="inline-flex items-center justify-center w-full px-6 py-3.5 border border-white/30 text-white text-[0.85rem] font-semibold rounded-2xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 active:scale-[0.98]"
+                className="flex-1 inline-flex items-center justify-center px-4 py-3 border border-white/25 text-white text-[0.8rem] font-semibold rounded-2xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 active:scale-[0.97]"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Admissions
@@ -278,9 +270,6 @@ export default function Header() {
             </div>
           </div>
         </div>
-
-        {/* Decorative gold shimmer line at gradient transition — mobile only */}
-        <div className="absolute left-0 right-0 top-[32%] lg:hidden h-px bg-gradient-to-r from-transparent via-gold-light/15 to-transparent z-[5]" />
 
         {/* Scroll indicator — desktop only */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-40">
