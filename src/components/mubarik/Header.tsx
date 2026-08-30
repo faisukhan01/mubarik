@@ -145,7 +145,7 @@ export default function Header() {
       </header>
 
       {/* ===== Hero Section ===== */}
-      <section className="relative min-h-[92vh] lg:min-h-[100vh] overflow-hidden">
+      <section className="relative lg:min-h-[100vh] overflow-hidden">
         {/* Background building image */}
         <Image
           src="/images/mubarik-building.png"
@@ -166,7 +166,7 @@ export default function Header() {
         </div>
 
         {/* ====== MOBILE HERO CONTENT — positioned higher ====== */}
-        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col px-5 pt-[24vh] pb-8">
+        <div className="lg:hidden relative z-10 flex flex-col px-5 pt-[22vh] pb-10">
           {/* Text content — no card, text sits on the blurred sheet */}
           <div className="px-1 py-2">
             {/* Label */}
