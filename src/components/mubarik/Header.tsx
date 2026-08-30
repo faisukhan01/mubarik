@@ -33,7 +33,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Navigation Bar */}
+      {/* ===== Navigation Bar ===== */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
@@ -144,7 +144,9 @@ export default function Header() {
         </div>
       </header>
 
-      <section className="relative min-h-[90vh] lg:min-h-[100vh] flex items-end overflow-hidden">
+      {/* ===== Hero Section ===== */}
+      <section className="relative min-h-[92vh] lg:min-h-[100vh] overflow-hidden">
+        {/* Background building image */}
         <Image
           src="/images/mubarik-building.png"
           alt="Mubarik Science Academy Campus"
@@ -154,51 +156,63 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* MOBILE: gradient overlay — stronger at bottom where text sits, lighter at top to show building */}
+        {/* ====== MOBILE OVERLAY: Top clear for building, bottom solid dark for text ====== */}
         <div className="absolute inset-0 lg:hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/70 to-navy-dark/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/20 to-transparent h-1/3" />
+          {/* Main gradient: top clear for building, smooth transition, bottom deeply dark */}
+          <div className="absolute inset-0 hero-mobile-gradient" />
+          {/* Vignette for depth */}
+          <div className="absolute inset-0 hero-vignette" />
         </div>
 
-        {/* DESKTOP: left-side dark for text readability */}
+        {/* ====== DESKTOP OVERLAY ====== */}
         <div className="absolute inset-0 hidden lg:block">
           <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/85 via-navy-dark/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-transparent to-navy-dark/30" />
         </div>
 
-        {/* Hero content — mobile: centered, desktop: left-aligned */}
-        <div className="relative z-10 container-site pb-16 sm:pb-20 lg:pb-28 pt-28 sm:pt-32">
-          {/* Mobile: centered layout */}
-          <div className="lg:max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-5">
-              <div className="w-8 h-px bg-gold" />
+        {/* ====== MOBILE HERO CONTENT — vertically centered ====== */}
+        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col justify-center px-6 pt-16 pb-8">
+          <div className="text-center">
+            {/* Elegant label with decorative lines */}
+            <div className="inline-flex items-center gap-3 mb-5">
+              <div className="w-5 h-px bg-gradient-to-r from-transparent to-gold-light/80" />
               <span
-                className="text-gold-light text-[0.65rem] font-semibold tracking-[0.18em] uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+                className="text-gold-light text-[0.6rem] font-semibold tracking-[0.16em] uppercase"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Mubarik Science Academy
               </span>
+              <div className="w-5 h-px bg-gradient-to-l from-transparent to-gold-light/80" />
             </div>
+
+            {/* Main heading — large, bold, with premium shadow */}
             <h1
-              className="text-white text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4.25rem] font-bold leading-[1.08] mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+              className="text-white text-[2.5rem] sm:text-[2.8rem] font-extrabold leading-[1.05] mb-4 tracking-tight hero-heading-shadow"
               style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
             >
               Building Minds.
               <br />
-              <span className="text-gold-light">Shaping Futures.</span>
+              <span className="hero-accent-text">Shaping Futures.</span>
             </h1>
+
+            {/* Gold accent divider */}
+            <div className="flex justify-center mb-5">
+              <div className="w-12 h-[2px] rounded-full bg-gradient-to-r from-transparent via-gold-light/70 to-transparent" />
+            </div>
+
+            {/* Short tagline */}
             <p
-              className="text-white/75 text-[0.85rem] lg:text-base leading-relaxed max-w-md mx-auto lg:mx-0 mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+              className="text-white/65 text-[0.82rem] leading-relaxed max-w-[280px] mx-auto mb-7 font-medium"
               style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
-              A committed educational institution dedicated to academic
-              excellence, scientific enquiry, and the development of
-              disciplined, capable young individuals.
+              Academic excellence meets character development in a nurturing environment.
             </p>
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+
+            {/* Buttons — full width, stacked */}
+            <div className="flex flex-col gap-3 max-w-[280px] mx-auto">
               <Link
                 href="#about"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-gold text-white text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_20px_rgba(46,139,87,0.3)]"
+                className="group inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 bg-gradient-to-r from-gold-dark to-gold text-white text-[0.85rem] font-bold tracking-wide rounded-2xl hover:from-gold hover:to-gold-light transition-all duration-300 shadow-[0_6px_28px_rgba(46,139,87,0.4)] active:scale-[0.98]"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Discover More
@@ -206,7 +220,7 @@ export default function Header() {
               </Link>
               <Link
                 href="#admissions"
-                className="inline-flex items-center px-6 py-3 border border-white/25 text-white text-sm font-medium rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                className="inline-flex items-center justify-center w-full px-6 py-3.5 border border-white/30 text-white text-[0.85rem] font-semibold rounded-2xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 active:scale-[0.98]"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Admissions
@@ -215,6 +229,59 @@ export default function Header() {
           </div>
         </div>
 
+        {/* ====== DESKTOP HERO CONTENT — bottom-left aligned ====== */}
+        <div className="hidden lg:flex relative z-10 min-h-[100vh] items-end">
+          <div className="container-site pb-28 pt-32">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-px bg-gold" />
+                <span
+                  className="text-gold-light text-[0.65rem] font-semibold tracking-[0.18em] uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+                >
+                  Mubarik Science Academy
+                </span>
+              </div>
+              <h1
+                className="text-white text-[3.5rem] xl:text-[4.25rem] font-bold leading-[1.08] mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+                style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
+              >
+                Building Minds.
+                <br />
+                <span className="text-gold-light">Shaping Futures.</span>
+              </h1>
+              <p
+                className="text-white/75 text-base leading-relaxed max-w-lg mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+                style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              >
+                A committed educational institution dedicated to academic
+                excellence, scientific enquiry, and the development of
+                disciplined, capable young individuals.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="#about"
+                  className="group inline-flex items-center gap-2 px-6 py-3 bg-gold text-white text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_20px_rgba(46,139,87,0.3)]"
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+                >
+                  Discover More
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
+                <Link
+                  href="#admissions"
+                  className="inline-flex items-center px-6 py-3 border border-white/25 text-white text-sm font-medium rounded-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+                >
+                  Admissions
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative gold shimmer line at the gradient transition point — mobile only */}
+        <div className="absolute left-0 right-0 top-[38%] lg:hidden h-px bg-gradient-to-r from-transparent via-gold-light/20 to-transparent z-[5]" />
+
         {/* Scroll indicator — desktop only */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-40">
           <span className="text-white text-[0.6rem] tracking-[0.2em] uppercase font-medium" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>Scroll</span>
@@ -222,7 +289,7 @@ export default function Header() {
         </div>
       </section>
 
-      {/* Mobile Menu Overlay */}
+      {/* ===== Mobile Menu Overlay ===== */}
       <div
         className={`fixed inset-0 z-40 bg-white lg:hidden transition-all duration-300 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'

@@ -314,12 +314,46 @@
   /* Hero building position — mobile: building is at ~75% of source image,
      on portrait screens we need ~85% object-position to visually center it */
   .hero-building-mobile {
-    object-position: 85% 35%;
+    object-position: 85% 30%;
   }
   @media (min-width: 1024px) {
     .hero-building-mobile {
       object-position: center;
     }
+  }
+
+  /* Mobile hero gradient: top 40% nearly clear (building visible),
+     smooth transition, bottom 60% deep dark for text readability */
+  .hero-mobile-gradient {
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 26, 56, 0.15) 0%,
+      rgba(15, 26, 56, 0.25) 30%,
+      rgba(15, 26, 56, 0.65) 45%,
+      rgba(15, 26, 56, 0.92) 60%,
+      rgba(15, 26, 56, 0.98) 100%
+    );
+  }
+
+  /* Gold accent text with subtle glow for mobile heading */
+  .hero-accent-text {
+    color: #3CA76E;
+    text-shadow: 0 0 40px rgba(46, 139, 87, 0.25);
+  }
+
+  /* Premium heading shadow for mobile */
+  .hero-heading-shadow {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4),
+                 0 0 60px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Vignette overlay for depth on mobile hero */
+  .hero-vignette {
+    background: radial-gradient(
+      ellipse 70% 60% at 50% 45%,
+      transparent 50%,
+      rgba(15, 26, 56, 0.3) 100%
+    );
   }
 }
 
