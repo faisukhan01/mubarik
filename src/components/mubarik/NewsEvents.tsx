@@ -1,108 +1,61 @@
+import { RevealSection } from '@/hooks/use-reveal';
+import Link from 'next/link';
+
+const featured = {
+  cat: 'Admissions',
+  title: 'Admissions Open for the Academic Year 2025–26',
+  date: '15 August 2025',
+  summary: 'Applications are now being accepted for Early Years through Secondary levels at both Mubarik Science Academy and Mubarik Educare School.',
+};
+
+const items = [
+  { cat: 'Event', title: 'Annual Science Exhibition 2025', date: '20 July 2025' },
+  { cat: 'Academic', title: 'Mid-Term Examination Schedule Released', date: '5 July 2025' },
+  { cat: 'Sports', title: 'Inter-Class Cricket Tournament Results', date: '28 June 2025' },
+];
+
 export default function NewsEvents() {
-  const newsItems = [
-    {
-      category: 'Admissions',
-      title: 'Admissions Open for the Academic Year 2025–26',
-      date: '15 August 2025',
-      summary: 'Applications are now being accepted for Early Years through Secondary levels at both Mubarik Science Academy and Mubarik Educare School.',
-      featured: true,
-    },
-    {
-      category: 'Event',
-      title: 'Annual Science Exhibition 2025',
-      date: '20 July 2025',
-      summary: 'Students showcase innovative science projects, experiments, and research demonstrations.',
-      featured: false,
-    },
-    {
-      category: 'Academic',
-      title: 'Mid-Term Examination Schedule Released',
-      date: '5 July 2025',
-      summary: 'The examination timetable for mid-term assessments across all levels is now available.',
-      featured: false,
-    },
-    {
-      category: 'Sports',
-      title: 'Inter-Class Cricket Tournament Results',
-      date: '28 June 2025',
-      summary: 'Congratulations to the winning teams in this year’s inter-class cricket tournament.',
-      featured: false,
-    },
-  ];
-
-  const featured = newsItems[0];
-  const others = newsItems.slice(1);
-
   return (
-    <section id="news" className="section-padding bg-white">
-      <div className="container-site">
-        <div className="flex items-end justify-between mb-12">
+    <section id="news" className="section-padding bg-warm-surface">
+      <RevealSection className="container-site">
+        <div className="flex items-end justify-between mb-14 reveal">
           <div>
-            <span className="section-label mb-4 block">News &amp; Events</span>
+            <div className="gold-line mb-5" />
             <h2 className="editorial-heading text-3xl sm:text-4xl">Latest Updates</h2>
           </div>
-          <a href="#" className="link-arrow hidden sm:inline-flex">
-            View All News
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+          <Link href="#" className="link-arrow hidden sm:inline-flex">
+            All News
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </Link>
         </div>
-
-        {/* Featured Card - full width on mobile, 2 cols on desktop */}
-        <div className="grid md:grid-cols-3 gap-6 mb-6">
-          <article className="md:col-span-2 border border-warm-border rounded-xl p-7 sm:p-8 hover:shadow-sm transition-shadow">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-cyan bg-cyan/10 px-2.5 py-1 rounded">
-                {featured.category}
-              </span>
+        <div className="grid lg:grid-cols-12 gap-6">
+          <article className="lg:col-span-7 bg-white rounded-xl p-7 lg:p-9 border border-warm-border hover:shadow-lg transition-shadow duration-400 reveal reveal-delay-1">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-[0.625rem] font-bold tracking-[0.12em] uppercase text-gold bg-gold/10 px-2.5 py-1 rounded">{featured.cat}</span>
               <span className="text-xs text-text-tertiary">{featured.date}</span>
             </div>
-            <h3 className="text-xl sm:text-2xl text-navy mb-3 leading-snug">
-              {featured.title}
-            </h3>
-            <p className="text-text-secondary text-sm leading-relaxed">
-              {featured.summary}
-            </p>
-            <a href="#" className="link-arrow mt-5 inline-flex">
+            <h3 className="text-xl lg:text-2xl text-navy mb-3 leading-snug" style={{fontFamily:'var(--font-playfair), Georgia, serif'}}>{featured.title}</h3>
+            <p className="body-text text-sm mb-6">{featured.summary}</p>
+            <Link href="#" className="link-arrow text-gold">
               Read More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
           </article>
-
-          {/* First regular card */}
-          <article className="border border-warm-border rounded-xl p-6 hover:shadow-sm transition-shadow">
-            <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-text-tertiary mb-3 block">
-              {others[0].category}
-            </span>
-            <h4 className="text-base font-semibold text-navy mb-2 leading-snug">
-              <a href="#" className="hover:text-cyan transition-colors">{others[0].title}</a>
-            </h4>
-            <span className="text-xs text-text-tertiary">{others[0].date}</span>
-          </article>
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            {items.map((item, i) => (
+              <article key={item.title} className={`bg-white rounded-xl p-6 border border-warm-border hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 reveal reveal-delay-${i+2}`}>
+                <div className="flex items-center gap-3 mb-2.5">
+                  <span className="text-[0.625rem] font-bold tracking-[0.12em] uppercase text-text-tertiary">{item.cat}</span>
+                  <span className="text-xs text-text-tertiary">{item.date}</span>
+                </div>
+                <h4 className="text-sm font-semibold text-navy leading-snug">
+                  <Link href="#" className="hover:text-gold transition-colors">{item.title}</Link>
+                </h4>
+              </article>
+            ))}
+          </div>
         </div>
-
-        {/* Remaining cards - 3 cols on desktop */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {others.slice(1).map((item) => (
-            <article key={item.title} className="border border-warm-border rounded-xl p-6 hover:shadow-sm transition-shadow">
-              <span className="text-[0.6875rem] font-semibold tracking-wider uppercase text-text-tertiary mb-3 block">
-                {item.category}
-              </span>
-              <h4 className="text-base font-semibold text-navy mb-2 leading-snug">
-                <a href="#" className="hover:text-cyan transition-colors">{item.title}</a>
-              </h4>
-              <p className="text-text-secondary text-xs leading-relaxed mb-3">
-                {item.summary}
-              </p>
-              <span className="text-xs text-text-tertiary">{item.date}</span>
-            </article>
-          ))}
-        </div>
-
-        <a href="#" className="link-arrow mt-8 sm:hidden inline-flex">
-          View All News
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-      </div>
+      </RevealSection>
     </section>
   );
 }

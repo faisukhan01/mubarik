@@ -1,5 +1,4 @@
 import Header from '@/components/mubarik/Header';
-import Hero from '@/components/mubarik/Hero';
 import About from '@/components/mubarik/About';
 import TwoInstitutions from '@/components/mubarik/TwoInstitutions';
 import Academics from '@/components/mubarik/Academics';
@@ -17,7 +16,6 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <Hero />
         <About />
         <TwoInstitutions />
         <Academics />

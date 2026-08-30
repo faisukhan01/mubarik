@@ -1,67 +1,50 @@
-export default function Academics() {
-  const programmes = [
-    {
-      level: 'Early Years',
-      description: 'A nurturing, play-based introduction to learning that develops social skills, basic numeracy, and early literacy in a supportive environment.'
-    },
-    {
-      level: 'Primary',
-      description: 'Structured instruction in core subjects — English, Mathematics, Science, and Urdu — building strong academic habits and subject knowledge.'
-    },
-    {
-      level: 'Middle School',
-      description: 'Deeper engagement with academic subjects, introduction to scientific methodology, and development of critical thinking and study skills.'
-    },
-    {
-      level: 'Secondary',
-      description: 'Rigorous examination preparation with a science-oriented curriculum, practical laboratory work, and focused academic coaching.'
-    },
-    {
-      level: 'Science Programme',
-      description: 'Specialised science education with hands-on laboratory experiments, project-based learning, and preparation for higher studies in science fields.'
-    },
-  ];
+import { RevealSection } from '@/hooks/use-reveal';
 
+const programmes = [
+  { num: '01', level: 'Early Years', desc: 'A nurturing introduction to learning that develops social skills, basic numeracy, and early literacy in a supportive environment.' },
+  { num: '02', level: 'Primary', desc: 'Structured instruction in core subjects — English, Mathematics, Science, and Urdu — building strong academic habits.' },
+  { num: '03', level: 'Middle School', desc: 'Deeper engagement with subjects, introduction to scientific methodology, and development of critical thinking.' },
+  { num: '04', level: 'Secondary', desc: 'Rigorous examination preparation with a science-oriented curriculum and practical laboratory work.' },
+  { num: '05', level: 'Science Programme', desc: 'Specialised science education with hands-on experiments, project-based learning, and preparation for higher studies.' },
+];
+
+export default function Academics() {
   return (
     <section id="academics" className="section-padding bg-white">
-      <div className="container-site">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Left Column */}
-          <div className="lg:col-span-4">
-            <span className="section-label mb-4 block">Academics</span>
+      <RevealSection className="container-site">
+        <div className="grid lg:grid-cols-12 gap-14 lg:gap-20">
+          <div className="lg:col-span-4 reveal">
+            <div className="gold-line mb-5" />
             <h2 className="editorial-heading text-3xl sm:text-4xl mb-5">
-              Learning Designed
-              for Depth
+              Learning Designed for <span className="text-gold">Depth</span>
             </h2>
             <p className="body-text">
-              Our curriculum is structured to develop curiosity, confidence, and capability at every stage of a student's education.
+              Our curriculum develops curiosity, confidence, and capability at every stage of a student&apos;s education.
             </p>
           </div>
-
-          {/* Right Column - Programme List */}
           <div className="lg:col-span-8">
-            <div className="divide-y divide-warm-border">
-              {programmes.map((programme, index) => (
-                <div key={programme.level} className="py-6 first:pt-0 last:pb-0 group">
-                  <div className="flex items-start gap-5">
-                    <span className="text-xs font-bold text-navy/25 mt-0.5 w-5 flex-shrink-0">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-navy mb-1">
-                        {programme.level}
-                      </h3>
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        {programme.description}
-                      </p>
-                    </div>
+            <div className="space-y-0">
+              {programmes.map((p, i) => (
+                <div
+                  key={p.level}
+                  className={`flex gap-6 py-5 border-b border-warm-border reveal reveal-delay-${Math.min(i + 1, 4)} ${i === 0 ? 'pt-0' : ''}`}
+                >
+                  <span
+                    className="text-2xl font-bold text-warm-border flex-shrink-0 w-10"
+                    style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  >
+                    {p.num}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-navy text-sm mb-1">{p.level}</h3>
+                    <p className="text-text-secondary text-sm leading-relaxed">{p.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </RevealSection>
     </section>
   );
 }
