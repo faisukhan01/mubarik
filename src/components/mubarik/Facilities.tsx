@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { RevealSection } from '@/hooks/use-reveal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -47,7 +46,6 @@ export default function Facilities() {
     [isTransitioning, active]
   );
 
-  // Auto-advance with progress bar
   useEffect(() => {
     const startTime = Date.now();
     const progressInterval = setInterval(() => {
@@ -57,7 +55,6 @@ export default function Facilities() {
     const autoTimer = setTimeout(() => {
       goTo((active + 1) % facilities.length);
     }, INTERVAL);
-
     return () => {
       clearInterval(progressInterval);
       clearTimeout(autoTimer);
@@ -66,7 +63,6 @@ export default function Facilities() {
 
   return (
     <section id="campus-life" className="section-padding bg-warm-surface">
-      {/* Header + Tabs inside container */}
       <RevealSection className="container-site">
         <div className="flex items-end justify-between mb-8 lg:mb-10">
           <div>
@@ -77,7 +73,6 @@ export default function Facilities() {
           </div>
         </div>
 
-        {/* Pill tabs ABOVE the image */}
         <div
           className="flex items-center gap-2 mb-6 overflow-x-auto pb-1 reveal reveal-delay-2"
           style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
@@ -98,32 +93,26 @@ export default function Facilities() {
         </div>
       </RevealSection>
 
-      {/* FULL WIDTH IMAGE — outside container */}
-      <div className="w-full relative">
-        <div className="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7] overflow-hidden">
-          {facilities.map((fac, i) => (
-            <div
-              key={fac.image}
-              className={`absolute inset-0 transition-all duration-700 ease-out ${
-                active === i
-                  ? 'opacity-100 scale-100'
-                  : 'opacity-0 scale-[1.04]'
-              }`}
-            >
-              <Image
-                src={fac.image}
-                alt={fac.title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={i === 0}
-              />
-            </div>
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
-        </div>
+      {/* Full width image slider */}
+      <div className="relative w-full" style={{ height: 'clamp(200px, 45vw, 500px)' }}>
+        {facilities.map((fac, i) => (
+          <div
+            key={fac.image}
+            className={`absolute inset-0 transition-all duration-700 ease-out ${
+              active === i ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-[1.04] z-0'
+            }`}
+          >
+            <img
+              src={fac.image}
+              alt={fac.title}
+              className="w-full h-full object-cover"
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          </div>
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-20" />
         {/* Progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/5">
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/5 z-20">
           <div
             className="h-full bg-gold transition-none"
             style={{ width: `${progress}%` }}
@@ -131,7 +120,6 @@ export default function Facilities() {
         </div>
       </div>
 
-      {/* Info bar + dots back inside container */}
       <RevealSection className="container-site">
         <div className="mt-5 bg-white rounded-2xl border border-warm-border p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 reveal reveal-delay-4">
           <div className="flex-1 min-w-0">

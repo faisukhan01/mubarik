@@ -144,10 +144,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* ========== HERO SECTION ========== */}
-      {/* Mobile: compact, clean, building visible as backdrop */}
       <section className="relative min-h-[85vh] lg:min-h-[100vh] flex items-end overflow-hidden">
-        {/* Building image */}
         <Image
           src="/images/mubarik-building.png"
           alt="Mubarik Science Academy Campus"
@@ -157,10 +154,10 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* MOBILE gradient: light overlay so building is clearly visible */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-navy-dark/60 via-navy-dark/40 to-navy-dark/70" />
+        {/* MOBILE: dark gradient ONLY at bottom where text sits, top is clear for building */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-navy-dark/85 via-navy-dark/40 to-transparent" />
 
-        {/* DESKTOP gradient: left-side for text readability */}
+        {/* DESKTOP: left-side dark for text */}
         <div className="absolute inset-0 hidden lg:block">
           <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/85 via-navy-dark/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-transparent to-navy-dark/30" />
