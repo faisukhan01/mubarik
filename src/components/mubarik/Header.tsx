@@ -279,8 +279,8 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Decorative gold shimmer line at the gradient transition point — mobile only */}
-        <div className="absolute left-0 right-0 top-[38%] lg:hidden h-px bg-gradient-to-r from-transparent via-gold-light/20 to-transparent z-[5]" />
+        {/* Decorative gold shimmer line at gradient transition — mobile only */}
+        <div className="absolute left-0 right-0 top-[32%] lg:hidden h-px bg-gradient-to-r from-transparent via-gold-light/15 to-transparent z-[5]" />
 
         {/* Scroll indicator — desktop only */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 opacity-40">
