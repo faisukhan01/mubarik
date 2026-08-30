@@ -121,3 +121,25 @@ Stage Summary:
 - Desktop: headings confirmed bold (font-weight 800), facilities full-width image, news aesthetic, CTA centered
 - Leadership section completely removed
 - Zero compile errors, zero runtime errors
+---
+Task ID: 5
+Agent: Main Agent
+Task: Fix mobile header building centering + text readability + CTA section padding
+
+Work Log:
+- Analyzed original building image (1600x900) with VLM — building center at ~75% from left
+- Calculated correct object-position for mobile portrait: ~85% (so building appears centered on screen)
+- Changed `.hero-building-mobile` object-position from `75% 40%` to `85% 35%` in globals.css
+- Strengthened mobile gradient overlay: from `from-navy-dark/90 via-navy-dark/50 to-transparent` to `from-navy-dark/95 via-navy-dark/70 to-navy-dark/30` + top overlay `from-navy-dark/20 to-transparent`
+- Added drop-shadow to heading text (`drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]`)
+- Added drop-shadow to body text and label text
+- Increased body text opacity from `text-white/60` to `text-white/75`
+- Fixed CTA section: replaced `container-site` (0 padding on desktop) with explicit `px-5 sm:px-8 lg:px-10` wrapper inside `max-w-7xl mx-auto`
+- Increased CTA overlay from `bg-navy-dark/65` to `bg-navy-dark/75` for better readability
+- Added `id="admissions"` to CTA section for anchor link support
+
+Stage Summary:
+- Mobile header: Building now CENTERED (verified by VLM analysis — was off to right side)
+- Mobile header: Text readability rated 9/10 (was poor due to light overlay)
+- CTA section: Proper padding on all screen sizes (verified mobile 8/10, desktop clean)
+- All changes verified via agent-browser screenshots + VLM analysis

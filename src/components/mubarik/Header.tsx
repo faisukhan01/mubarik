@@ -154,8 +154,11 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* MOBILE: gradient only at bottom, top clear to show building */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-navy-dark/90 via-navy-dark/50 to-transparent" />
+        {/* MOBILE: gradient overlay — stronger at bottom where text sits, lighter at top to show building */}
+        <div className="absolute inset-0 lg:hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/95 via-navy-dark/70 to-navy-dark/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/20 to-transparent h-1/3" />
+        </div>
 
         {/* DESKTOP: left-side dark for text readability */}
         <div className="absolute inset-0 hidden lg:block">
@@ -170,14 +173,14 @@ export default function Header() {
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-5">
               <div className="w-8 h-px bg-gold" />
               <span
-                className="text-gold-light text-[0.65rem] font-semibold tracking-[0.18em] uppercase"
+                className="text-gold-light text-[0.65rem] font-semibold tracking-[0.18em] uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
                 style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
               >
                 Mubarik Science Academy
               </span>
             </div>
             <h1
-              className="text-white text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4.25rem] font-bold leading-[1.08] mb-5"
+              className="text-white text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[4.25rem] font-bold leading-[1.08] mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
               style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
             >
               Building Minds.
@@ -185,7 +188,7 @@ export default function Header() {
               <span className="text-gold-light">Shaping Futures.</span>
             </h1>
             <p
-              className="text-white/60 text-[0.85rem] lg:text-base leading-relaxed max-w-md mx-auto lg:mx-0 mb-8"
+              className="text-white/75 text-[0.85rem] lg:text-base leading-relaxed max-w-md mx-auto lg:mx-0 mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
               style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               A committed educational institution dedicated to academic
