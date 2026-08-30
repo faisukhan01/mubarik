@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { label: 'Academics', href: '#academics' },
   { label: 'Admissions', href: '#admissions' },
   { label: 'Campus Life', href: '#campus-life' },
-  { label: 'Leadership', href: '#leadership' },
   { label: 'News', href: '#news' },
 ];
 
@@ -147,7 +146,7 @@ export default function Header() {
 
       {/* ========== HERO SECTION ========== */}
       {/* Mobile: compact, clean, building visible as backdrop */}
-      <section className="relative lg:min-h-[100vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[85vh] lg:min-h-[100vh] flex items-end overflow-hidden">
         {/* Building image */}
         <Image
           src="/images/mubarik-building.png"
@@ -158,8 +157,8 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* MOBILE gradient: simple dark overlay from bottom, building visible in upper portion */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-navy-dark via-navy-dark/70 to-navy-dark/40" />
+        {/* MOBILE gradient: light overlay so building is clearly visible */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-navy-dark/60 via-navy-dark/40 to-navy-dark/70" />
 
         {/* DESKTOP gradient: left-side for text readability */}
         <div className="absolute inset-0 hidden lg:block">

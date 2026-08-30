@@ -6,25 +6,25 @@ import { RevealSection } from '@/hooks/use-reveal';
 
 export default function AdmissionCTA() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Building background */}
       <Image
         src="/images/mubarik-building.png"
         alt=""
         fill
-        className="object-cover"
+        className="object-cover object-center"
         sizes="100vw"
       />
 
-      {/* Much lighter overlay — building is very visible */}
-      <div className="absolute inset-0 bg-navy-dark/50" />
+      {/* Dark overlay — lighter so building shows */}
+      <div className="absolute inset-0 bg-navy-dark/60" />
 
-      <RevealSection className="container-site relative z-10 text-center">
-        {/* Gold line above heading */}
-        <div className="gold-line mx-auto mb-8 reveal" />
+      <RevealSection className="relative z-10 flex flex-col items-center justify-center text-center px-6">
+        {/* Gold line */}
+        <div className="gold-line mb-8 reveal" />
 
         <h2
-          className="text-white text-[1.75rem] sm:text-2xl lg:text-[1.85rem] mb-5 max-w-lg mx-auto leading-snug reveal reveal-delay-1"
+          className="text-white text-[1.6rem] sm:text-[2rem] lg:text-[2.5rem] mb-5 leading-tight max-w-2xl reveal reveal-delay-1"
           style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
         >
           Begin Your Child&apos;s Journey at{' '}
@@ -32,7 +32,7 @@ export default function AdmissionCTA() {
         </h2>
 
         <p
-          className="text-white/80 text-sm sm:text-base mb-10 max-w-md mx-auto leading-relaxed reveal reveal-delay-2"
+          className="text-white/70 text-sm sm:text-base lg:text-[1.05rem] mb-10 max-w-lg leading-relaxed reveal reveal-delay-2"
           style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
         >
           Admissions are now open. Contact us to learn about our programmes

@@ -98,3 +98,26 @@ Stage Summary:
 - All sections render correctly on both desktop and mobile
 - No runtime errors
 - Design quality confirmed by VLM analysis
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Final round of fixes per user feedback
+
+Work Log:
+- Made all section headings bold (font-weight: 800 in .section-heading CSS utility)
+- Fixed mobile header: reduced gradient overlay opacity (navy-dark/60 via /40 to /70) so building is clearly visible
+- Fixed mobile header: added min-h-[85vh] on mobile to give building space to show
+- Fixed Facilities section: removed orphaned `reveal` class from image wrapper that was outside RevealSection (caused opacity:0 permanently — image invisible)
+- Redesigned News/Updates section: featured card now dark navy with decorative elements, 3 smaller cards in responsive grid below, clean aesthetic with Calendar icons
+- Removed Leadership section entirely from page.tsx imports and rendering
+- Removed 'Leadership' from nav items in Header.tsx
+- Fixed CTA section: improved centering with flex items-center justify-center, increased padding, wider max-width for heading, removed container-site constraint, used direct flex centering for perfect centering
+- Fixed JSX comment syntax error on line 160 of Header.tsx (missing closing `}` brace)
+
+Stage Summary:
+- All 6 fixes applied and verified via agent-browser VLM analysis
+- Mobile: building visible in header, facilities image shows, news looks modern, CTA centered with building bg
+- Desktop: headings confirmed bold (font-weight 800), facilities full-width image, news aesthetic, CTA centered
+- Leadership section completely removed
+- Zero compile errors, zero runtime errors

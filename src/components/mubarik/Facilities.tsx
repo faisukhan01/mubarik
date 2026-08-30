@@ -99,7 +99,7 @@ export default function Facilities() {
       </RevealSection>
 
       {/* FULL WIDTH IMAGE — outside container */}
-      <div className="w-full relative reveal">
+      <div className="w-full relative">
         <div className="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7] overflow-hidden">
           {facilities.map((fac, i) => (
             <div

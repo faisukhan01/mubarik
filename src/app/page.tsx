@@ -7,7 +7,6 @@ import Facilities from '@/components/mubarik/Facilities';
 import StudentLife from '@/components/mubarik/StudentLife';
 import Admissions from '@/components/mubarik/Admissions';
 import NewsEvents from '@/components/mubarik/NewsEvents';
-import Leadership from '@/components/mubarik/Leadership';
 import AdmissionCTA from '@/components/mubarik/AdmissionCTA';
 import Footer from '@/components/mubarik/Footer';
 
@@ -24,7 +23,6 @@ export default function Home() {
         <StudentLife />
         <Admissions />
         <NewsEvents />
-        <Leadership />
         <AdmissionCTA />
       </main>
       <Footer />
