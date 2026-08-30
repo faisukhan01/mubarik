@@ -1,4 +1,5 @@
 import Header from '@/components/mubarik/Header';
+import AdmissionPopup from '@/components/mubarik/AdmissionPopup';
 import About from '@/components/mubarik/About';
 import TwoInstitutions from '@/components/mubarik/TwoInstitutions';
 import Academics from '@/components/mubarik/Academics';
@@ -13,6 +14,7 @@ import Footer from '@/components/mubarik/Footer';
 export default function Home() {
   return (
     <>
+      <AdmissionPopup />
       <Header />
       <main>
         <About />
