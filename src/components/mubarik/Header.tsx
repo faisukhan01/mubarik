@@ -144,20 +144,20 @@ export default function Header() {
         </div>
       </header>
 
-      <section className="relative min-h-[85vh] lg:min-h-[100vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[90vh] lg:min-h-[100vh] flex items-end overflow-hidden">
         <Image
           src="/images/mubarik-building.png"
           alt="Mubarik Science Academy Campus"
           fill
-          className="object-cover object-center"
+          className="object-cover hero-building-mobile"
           priority
           sizes="100vw"
         />
 
-        {/* MOBILE: dark gradient ONLY at bottom where text sits, top is clear for building */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-navy-dark/85 via-navy-dark/40 to-transparent" />
+        {/* MOBILE: gradient only at bottom, top clear to show building */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-navy-dark/90 via-navy-dark/50 to-transparent" />
 
-        {/* DESKTOP: left-side dark for text */}
+        {/* DESKTOP: left-side dark for text readability */}
         <div className="absolute inset-0 hidden lg:block">
           <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/85 via-navy-dark/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-transparent to-navy-dark/30" />

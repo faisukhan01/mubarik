@@ -310,6 +310,16 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
+
+  /* Hero building position — mobile */
+  .hero-building-mobile {
+    object-position: 75% 40%;
+  }
+  @media (min-width: 1024px) {
+    .hero-building-mobile {
+      object-position: center;
+    }
+  }
 }
 
 /* Scrollbar */

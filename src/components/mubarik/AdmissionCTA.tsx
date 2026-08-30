@@ -18,7 +18,7 @@ export default function AdmissionCTA() {
       {/* Overlay — lighter so building shows through */}
       <div className="absolute inset-0 bg-navy-dark/65" />
 
-      <RevealSection className="relative z-10">
+      <RevealSection className="relative z-10 container-site">
         <div className="max-w-xl">
           <div className="gold-line mb-8 reveal" />
 
