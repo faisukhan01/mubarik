@@ -156,10 +156,8 @@ export default function Header() {
           sizes="100vw"
         />
 
-        {/* ====== MOBILE: NO dark overlay — just a very subtle top tint for nav readability ====== */}
-        <div className="absolute inset-0 lg:hidden">
-          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-navy-dark/30 to-transparent" />
-        </div>
+        {/* ====== MOBILE: Full-screen dark blurred sheet over building ====== */}
+        <div className="absolute inset-0 lg:hidden bg-black/40 backdrop-blur-[6px]" />
 
         {/* ====== DESKTOP OVERLAY ====== */}
         <div className="absolute inset-0 hidden lg:block">
@@ -167,10 +165,10 @@ export default function Header() {
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/60 via-transparent to-navy-dark/30" />
         </div>
 
-        {/* ====== MOBILE HERO CONTENT — frosted glass panel ====== */}
-        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col justify-end px-5 pb-10 pt-20">
-          {/* Frosted glass card behind text */}
-          <div className="hero-glass-panel rounded-3xl px-6 py-8 sm:px-8 sm:py-10">
+        {/* ====== MOBILE HERO CONTENT — positioned higher ====== */}
+        <div className="lg:hidden relative z-10 min-h-[92vh] flex flex-col px-5 pt-[24vh] pb-8">
+          {/* Text content — no card, text sits on the blurred sheet */}
+          <div className="px-1 py-2">
             {/* Label */}
             <div className="inline-flex items-center gap-2.5 mb-4">
               <div className="w-5 h-[1.5px] bg-gold-light/70" />
