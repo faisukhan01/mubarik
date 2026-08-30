@@ -46,9 +46,9 @@
   --color-navy: #1B2A5A;
   --color-navy-light: #253A6E;
   --color-navy-dark: #0F1A38;
-  --color-gold: #C4A052;
-  --color-gold-light: #D4B368;
-  --color-gold-dark: #9E7D35;
+  --color-gold: #2E8B57;
+  --color-gold-light: #3CA76E;
+  --color-gold-dark: #1E6B42;
   --color-brand-green: #009B3A;
   --color-warm-bg: #FAFAF8;
   --color-warm-surface: #F5F3EE;
@@ -72,14 +72,14 @@
   --secondary-foreground: #1A1A18;
   --muted: #F5F3EE;
   --muted-foreground: #5C5B56;
-  --accent: #C4A052;
+  --accent: #2E8B57;
   --accent-foreground: #1A1A18;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #E8E6E0;
   --input: #E8E6E0;
   --ring: #1B2A5A;
   --chart-1: #1B2A5A;
-  --chart-2: #C4A052;
+  --chart-2: #2E8B57;
   --chart-3: #009B3A;
   --chart-4: #F5F3EE;
   --chart-5: #5C5B56;
@@ -244,7 +244,7 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #C4A052;
+    color: #2E8B57;
   }
   .section-heading {
     font-family: var(--font-dm-serif), Georgia, serif;
@@ -273,12 +273,12 @@
   }
   .link-arrow:hover {
     gap: 0.75rem;
-    color: #C4A052;
+    color: #2E8B57;
   }
   .gold-line {
     width: 48px;
     height: 2px;
-    background: #C4A052;
+    background: #2E8B57;
   }
 
   /* Card hover effects */

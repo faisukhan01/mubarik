@@ -28,7 +28,7 @@ export default function AdmissionCTA() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="#"
-            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gold text-navy-dark text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_24px_rgba(196,160,82,0.3)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gold text-white text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_24px_rgba(46,139,87,0.3)]"
           >
             Apply Now
             <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

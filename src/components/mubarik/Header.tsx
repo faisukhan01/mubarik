@@ -48,15 +48,13 @@ export default function Header() {
         <div className="container-site flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
           <Link href="#" className="flex items-center gap-3 flex-shrink-0 z-10">
-            <div className={`relative ${scrolled ? '' : 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]'}`}>
+            <div className={`rounded-lg ${scrolled ? 'bg-transparent' : 'bg-white p-1.5 shadow-lg shadow-black/30'}`}>
               <Image
                 src="/mubarik-logo.png"
                 alt="Mubarik Science Academy"
-                width={52}
-                height={52}
-                className={`w-12 h-12 lg:w-[52px] lg:h-[52px] transition-all duration-300 ${
-                  scrolled ? '' : 'brightness-0 invert'
-                }`}
+                width={48}
+                height={48}
+                className={`w-9 h-9 lg:w-10 lg:h-10 transition-all duration-300`}
                 priority
               />
             </div>
@@ -71,7 +69,7 @@ export default function Header() {
               </span>
               <span
                 className={`text-[0.6rem] font-semibold tracking-[0.15em] uppercase transition-colors duration-300 ${
-                  scrolled ? 'text-gold' : 'text-gold-light'
+                  scrolled ? 'text-gold' : 'text-white/70'
                 }`}
               >
                 School & Academy
@@ -180,7 +178,7 @@ export default function Header() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="#about"
-                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gold text-navy-dark text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_24px_rgba(196,160,82,0.35)]"
+                className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gold text-white text-sm font-bold tracking-wide rounded-xl hover:bg-gold-light transition-all duration-300 shadow-[0_4px_24px_rgba(46,139,87,0.35)]"
               >
                 Discover More
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
