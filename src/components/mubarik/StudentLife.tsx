@@ -72,7 +72,7 @@ export default function StudentLife() {
                   <span
                     className="inline-block bg-gold/90 text-white text-[0.6rem] font-bold tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-lg backdrop-blur-sm"
                     style={{
-                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     }}
                   >
                     {a.tag}
@@ -86,7 +86,7 @@ export default function StudentLife() {
                   className="text-navy text-lg lg:text-xl mb-2 leading-snug"
                   style={{
                     fontFamily:
-                      'var(--font-playfair), Georgia, serif',
+                      'var(--font-montserrat), system-ui, sans-serif',
                   }}
                 >
                   {a.title}
@@ -94,7 +94,7 @@ export default function StudentLife() {
                 <p
                   className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-3"
                   style={{
-                    fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   }}
                 >
                   {a.desc}
@@ -103,7 +103,7 @@ export default function StudentLife() {
                   href="#"
                   className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-gold transition-colors duration-300"
                   style={{
-                    fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   }}
                 >
                   Explore

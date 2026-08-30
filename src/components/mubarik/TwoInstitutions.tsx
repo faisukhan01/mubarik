@@ -33,7 +33,7 @@ export default function TwoInstitutions() {
           <span className="section-label mb-4 block reveal">Our Divisions</span>
           <h2
             className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1"
-            style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+            style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
           >
             One System,{' '}
             <span className="text-gold">Two Pathways</span>
@@ -55,7 +55,7 @@ export default function TwoInstitutions() {
               {/* Watermark number */}
               <span
                 className="absolute bottom-4 right-6 text-[9rem] leading-none text-navy/[0.03] pointer-events-none select-none"
-                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
               >
                 01
               </span>
@@ -68,19 +68,19 @@ export default function TwoInstitutions() {
 
                 <span
                   className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-gold/70 mb-2 block"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   Division I
                 </span>
                 <h3
                   className="text-[1.35rem] text-navy mb-3 leading-tight"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   Mubarik Science Academy
                 </h3>
                 <p
                   className="body-text text-[0.85rem] mb-8"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   Focused on academic rigour and science education, the Academy
                   prepares students for higher-level studies with an emphasis on
@@ -94,7 +94,7 @@ export default function TwoInstitutions() {
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
                       <span
                         className="text-text-secondary text-[0.88rem] leading-relaxed"
-                        style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                        style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                       >
                         {text}
                       </span>
@@ -119,7 +119,7 @@ export default function TwoInstitutions() {
               {/* Watermark number */}
               <span
                 className="absolute bottom-4 right-6 text-[9rem] leading-none text-navy/[0.03] pointer-events-none select-none"
-                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
               >
                 02
               </span>
@@ -132,19 +132,19 @@ export default function TwoInstitutions() {
 
                 <span
                   className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-brand-green/70 mb-2 block"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   Division II
                 </span>
                 <h3
                   className="text-[1.35rem] text-navy mb-3 leading-tight"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   Mubarik Educare School
                 </h3>
                 <p
                   className="body-text text-[0.85rem] mb-8"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   Providing foundational education from early years through
                   primary and middle levels, Educare School focuses on building
@@ -158,7 +158,7 @@ export default function TwoInstitutions() {
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-green flex-shrink-0" />
                       <span
                         className="text-text-secondary text-[0.88rem] leading-relaxed"
-                        style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                        style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                       >
                         {text}
                       </span>

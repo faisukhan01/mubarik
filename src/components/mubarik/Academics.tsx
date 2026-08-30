@@ -77,11 +77,11 @@ export default function Academics() {
             <span className="section-label mb-4 block">Academics</span>
             <h2
               className="section-heading text-[2rem] sm:text-[2.5rem] mb-5"
-              style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+              style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
             >
               Learning Designed for <span className="text-gold">Depth</span>
             </h2>
-            <p className="body-text mb-8" style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}>
+            <p className="body-text mb-8" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
               Our curriculum develops curiosity, confidence, and capability at
               every stage of a student&apos;s education.
             </p>
@@ -114,7 +114,7 @@ export default function Academics() {
                         className={`text-sm font-semibold block truncate ${
                           activeIndex === i ? 'text-white' : ''
                         }`}
-                        style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                        style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                       >
                         {p.level}
                       </span>
@@ -125,7 +125,7 @@ export default function Academics() {
                           ? 'text-white/60'
                           : 'text-text-tertiary'
                       }`}
-                      style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                     >
                       {p.num}
                     </span>
@@ -161,7 +161,7 @@ export default function Academics() {
               {/* Large ghost watermark number */}
               <span
                 className="absolute top-4 right-6 text-[10rem] lg:text-[12rem] leading-none text-navy/[0.03] pointer-events-none select-none"
-                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
               >
                 {active.num}
               </span>
@@ -179,14 +179,14 @@ export default function Academics() {
 
                 <h3
                   className="text-[1.75rem] lg:text-2xl text-navy mb-4 leading-tight"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   {active.level}
                 </h3>
 
                 <p
                   className="body-text max-w-md leading-relaxed mb-8"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   {active.desc}
                 </p>
@@ -197,7 +197,7 @@ export default function Academics() {
                     <span
                       key={h}
                       className="px-3 py-1.5 rounded-lg bg-warm-surface text-text-secondary text-xs font-medium"
-                      style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                      style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                     >
                       {h}
                     </span>

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Montserrat, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const inter = Inter({
+  variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${jakarta.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

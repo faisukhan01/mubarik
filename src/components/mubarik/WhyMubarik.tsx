@@ -42,7 +42,7 @@ export default function WhyMubarik() {
           <span className="section-label mb-4 block reveal">Why Mubarik</span>
           <h2
             className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1"
-            style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+            style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
           >
             What <span className="text-gold">Distinguishes</span> Us
           </h2>
@@ -60,7 +60,7 @@ export default function WhyMubarik() {
                 {/* Ghost number in faint navy */}
                 <span
                   className="absolute top-4 right-6 text-[5rem] leading-none text-navy/[0.04] pointer-events-none select-none group-hover:text-gold/[0.06] transition-colors duration-500"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   {item.num}
                 </span>
@@ -72,13 +72,13 @@ export default function WhyMubarik() {
 
                 <h3
                   className="text-xl text-navy mb-3 group-hover:text-gold-dark transition-colors duration-300"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   {item.title}
                 </h3>
                 <p
                   className="text-text-secondary text-sm leading-relaxed"
-                  style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+                  style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
                 >
                   {item.desc}
                 </p>

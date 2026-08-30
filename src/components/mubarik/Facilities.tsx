@@ -50,7 +50,6 @@ export default function Facilities() {
   // Auto-advance with progress bar
   useEffect(() => {
     const startTime = Date.now();
-    const frame = requestAnimationFrame(() => setProgress(0));
     const progressInterval = setInterval(() => {
       const elapsed = Date.now() - startTime;
       setProgress(Math.min((elapsed / INTERVAL) * 100, 100));
@@ -60,7 +59,6 @@ export default function Facilities() {
     }, INTERVAL);
 
     return () => {
-      cancelAnimationFrame(frame);
       clearInterval(progressInterval);
       clearTimeout(autoTimer);
     };
@@ -68,23 +66,21 @@ export default function Facilities() {
 
   return (
     <section id="campus-life" className="section-padding bg-warm-surface">
+      {/* Header + Tabs inside container */}
       <RevealSection className="container-site">
-        {/* Section header */}
         <div className="flex items-end justify-between mb-8 lg:mb-10">
           <div>
             <span className="section-label mb-3 block reveal">Campus</span>
-            <h2
-              className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1"
-            >
+            <h2 className="section-heading text-[2rem] sm:text-[2.5rem] reveal reveal-delay-1">
               Our <span className="text-gold">Facilities</span>
             </h2>
           </div>
         </div>
 
-        {/* Pill tab navigation — ABOVE the image */}
+        {/* Pill tabs ABOVE the image */}
         <div
-          className="flex items-center gap-2 mb-5 overflow-x-auto pb-1 reveal reveal-delay-2"
-          style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+          className="flex items-center gap-2 mb-6 overflow-x-auto pb-1 reveal reveal-delay-2"
+          style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
         >
           {facilities.map((fac, i) => (
             <button
@@ -100,58 +96,50 @@ export default function Facilities() {
             </button>
           ))}
         </div>
+      </RevealSection>
 
-        {/* Image showcase */}
-        <div className="relative reveal reveal-delay-3">
-          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:max-h-[440px] rounded-2xl overflow-hidden bg-navy-dark/5">
-            {/* Crossfade: render both current and next image */}
-            {facilities.map((fac, i) => (
-              <div
-                key={fac.image}
-                className={`absolute inset-0 transition-all duration-700 ease-out ${
-                  active === i
-                    ? 'opacity-100 scale-100'
-                    : 'opacity-0 scale-[1.04]'
-                }`}
-              >
-                <Image
-                  src={fac.image}
-                  alt={fac.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, 1200px"
-                  priority={i === 0}
-                />
-              </div>
-            ))}
-
-            {/* Subtle vignette at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-          </div>
-
-          {/* Progress bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/5 rounded-b-2xl overflow-hidden">
+      {/* FULL WIDTH IMAGE — outside container */}
+      <div className="w-full relative reveal">
+        <div className="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7] overflow-hidden">
+          {facilities.map((fac, i) => (
             <div
-              className="h-full bg-gold rounded-full transition-none"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+              key={fac.image}
+              className={`absolute inset-0 transition-all duration-700 ease-out ${
+                active === i
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-[1.04]'
+              }`}
+            >
+              <Image
+                src={fac.image}
+                alt={fac.title}
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority={i === 0}
+              />
+            </div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent pointer-events-none" />
         </div>
+        {/* Progress bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/5">
+          <div
+            className="h-full bg-gold transition-none"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
 
-        {/* Info bar below image */}
-        <div
-          className="mt-5 bg-white rounded-2xl border border-warm-border p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 reveal reveal-delay-4"
-          style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
-        >
+      {/* Info bar + dots back inside container */}
+      <RevealSection className="container-site">
+        <div className="mt-5 bg-white rounded-2xl border border-warm-border p-5 sm:p-7 flex flex-col sm:flex-row items-start sm:items-center gap-4 reveal reveal-delay-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-3 mb-1.5">
               <div className="gold-line flex-shrink-0" />
               <h3
                 className="text-navy text-lg sm:text-xl font-semibold leading-snug truncate"
-                style={{
-                  fontFamily:
-                    'var(--font-playfair), Georgia, serif',
-                }}
+                style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
               >
                 {f.title}
               </h3>
@@ -160,38 +148,30 @@ export default function Facilities() {
               {f.desc}
             </p>
           </div>
-
-          {/* Navigation arrows */}
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
-              onClick={() =>
-                goTo((active - 1 + facilities.length) % facilities.length)
-              }
+              onClick={() => goTo((active - 1 + facilities.length) % facilities.length)}
               className="w-10 h-10 rounded-full border border-warm-border flex items-center justify-center text-text-secondary hover:bg-navy hover:text-white hover:border-navy transition-all duration-300 cursor-pointer"
-              aria-label="Previous facility"
+              aria-label="Previous"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => goTo((active + 1) % facilities.length)}
               className="w-10 h-10 rounded-full border border-warm-border flex items-center justify-center text-text-secondary hover:bg-navy hover:text-white hover:border-navy transition-all duration-300 cursor-pointer"
-              aria-label="Next facility"
+              aria-label="Next"
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
-
-        {/* Dot indicators */}
         <div className="flex items-center justify-center gap-2.5 mt-5 reveal reveal-delay-5">
           {facilities.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               className={`h-[6px] rounded-full transition-all duration-500 cursor-pointer ${
-                active === i
-                  ? 'w-8 bg-gold'
-                  : 'w-[6px] bg-warm-border hover:bg-text-tertiary'
+                active === i ? 'w-8 bg-gold' : 'w-[6px] bg-warm-border hover:bg-text-tertiary'
               }`}
               aria-label={`Go to facility ${i + 1}`}
             />

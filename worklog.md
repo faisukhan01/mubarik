@@ -61,6 +61,23 @@ Stage Summary:
 - Key fixes: logo visible in header and footer, building visible through CTA overlay, elegant light Leadership section
 
 ---
+Task ID: 2-d
+Agent: Sub-agent full-stack-developer
+Task: Rewrite NewsEvents + Leadership + AdmissionCTA (font fix pass)
+
+Work Log:
+- NewsEvents: Replaced dark navy gradient featured card with light warm gradient (from-navy/[0.03] to-gold/[0.05]), white text → dark text (navy heading, text-secondary summary), gold link arrow on light bg; right cards now clean white with colored left borders (gold/Event, navy/Academic, brand-green/Sports), hover lifts + vibrant border; removed count separators between cards; added catBorderColors map for cleaner code; header changed "All News" → "View All"
+- Leadership: Complete redesign from side-by-side grid to centered layout; bg-white → bg-warm-surface; large decorative quote mark (text-gold/20, 7-9rem) centered above quote; quote in max-w-3xl centered blockquote, Montserrat font; thin gold divider; name in navy + "Principal" label in gold uppercase; portrait repositioned below quote, centered, w-48 h-60 rounded-2xl with ring-2 ring-gold/30; added 'use client' for RevealSection
+- AdmissionCTA: Overlay reduced from bg-navy-dark/60 to bg-navy-dark/50 (building much more visible); removed glass-morphism card, animated gradient overlays, and pulse overlay; content now centered directly on visible building; text-white/80 for brighter readability; border-white/30 → border-white/40 on Contact Us button; added 'use client' for RevealSection
+- All files: Verified var(--font-montserrat) for headings, var(--font-inter) for body, system-ui/sans-serif fallback — no Georgia/serif anywhere
+
+Stage Summary:
+- All 3 components rewritten with aesthetic, animated designs
+- Key improvements: light NewsEvents (no dark navy), centered Leadership (portrait below quote), transparent CTA (building clearly visible)
+- Pre-existing lint errors in About.tsx and Facilities.tsx (not touched in this task)
+- All 3 files compile successfully
+
+---
 Task ID: 3
 Agent: Main Agent
 Task: Browser verification

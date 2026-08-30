@@ -31,7 +31,7 @@ export default function Footer() {
               <div className="flex flex-col leading-tight">
                 <span
                   className="text-[1.05rem] font-semibold tracking-tight text-white"
-                  style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                  style={{ fontFamily: 'var(--font-montserrat), system-ui, sans-serif' }}
                 >
                   Mubarik
                 </span>
@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
             <p
               className="text-white/30 text-sm leading-relaxed max-w-xs mb-8"
-              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               A committed educational institution providing quality education
               with a focus on academic excellence and character development.
@@ -76,7 +76,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h4
               className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
-              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               Navigation
             </h4>
@@ -98,13 +98,13 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4
               className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
-              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               Contact
             </h4>
             <ul
               className="space-y-3 text-sm text-white/30"
-              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               <li>
                 <a href="tel:+923001234567" className="hover:text-white transition-colors duration-200">
@@ -126,7 +126,7 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h4
               className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-gold mb-5"
-              style={{ fontFamily: 'var(--font-jakarta), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
             >
               Schools
             </h4>

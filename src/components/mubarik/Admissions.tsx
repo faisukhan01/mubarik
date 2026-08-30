@@ -58,7 +58,7 @@ export default function Admissions() {
                         : 'bg-white border-navy/20 text-navy hover:border-gold hover:text-gold'
                     }`}
                     style={{
-                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     }}
                   >
                     <span className="text-sm font-bold">{step.num}</span>
@@ -71,7 +71,7 @@ export default function Admissions() {
                         isActive ? 'text-gold' : ''
                       }`}
                       style={{
-                        fontFamily: 'var(--font-playfair), Georgia, serif',
+                        fontFamily: 'var(--font-montserrat), system-ui, sans-serif',
                       }}
                     >
                       {step.title}
@@ -83,7 +83,7 @@ export default function Admissions() {
                           : 'text-text-tertiary opacity-70 max-h-0 overflow-hidden'
                       }`}
                       style={{
-                        fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
                       }}
                     >
                       {step.desc}
@@ -116,7 +116,7 @@ export default function Admissions() {
                         : 'bg-white border-navy/20 text-navy'
                     }`}
                     style={{
-                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     }}
                   >
                     <span className="text-xs font-bold">{step.num}</span>
@@ -133,7 +133,7 @@ export default function Admissions() {
                       isActive ? 'text-gold' : ''
                     }`}
                     style={{
-                      fontFamily: 'var(--font-playfair), Georgia, serif',
+                      fontFamily: 'var(--font-montserrat), system-ui, sans-serif',
                     }}
                   >
                     {step.title}
@@ -141,7 +141,7 @@ export default function Admissions() {
                   <p
                     className="text-text-tertiary text-sm leading-relaxed"
                     style={{
-                      fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     }}
                   >
                     {step.desc}
@@ -158,7 +158,7 @@ export default function Admissions() {
             href="#"
             className="group inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-navy to-navy-light text-white text-sm font-semibold tracking-wide rounded-xl hover:shadow-xl hover:shadow-navy/25 transition-all duration-400"
             style={{
-              fontFamily: 'var(--font-jakarta), system-ui, sans-serif',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
             }}
           >
             Begin Your Admission Journey
