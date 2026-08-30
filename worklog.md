@@ -143,3 +143,43 @@ Stage Summary:
 - Building image hero creates immediate institutional credibility
 - Scroll reveal animations add life without being flashy
 - Compared to 'Eton College, Harrow, or top international academies'
+
+---
+Task ID: creative-v4
+Agent: Main Orchestrator
+Task: Major visual overhaul — fonts, navbar visibility, section redesigns, animations, mobile fixes
+
+Work Log:
+- Changed fonts: Playfair Display + Plus Jakarta Sans → DM Serif Display + Outfit (professional, simple, aesthetic)
+- Updated layout.tsx font variable names (--font-serif, --font-sans) to match new fonts
+- Rewrote globals.css: new animation system (fadeUp, scaleIn, slideRight, float, shimmer), reveal-scale/reveal-left/reveal-right classes, card-hover utility, glass-dark utility, increased base radius to 0.75rem
+- Header navbar: Changed from transparent to dark glassmorphism (bg-navy-dark/40 backdrop-blur-md) for visibility against building image
+- Header: Apply Now button now white with shadow on hero (was gold-on-dark), navy on scroll
+- Header: Added drop-shadow to logo and text for contrast against dark hero background
+- Header: Made Discover More button gold with glow shadow (shadow-gold/35)
+- Header: Mobile building image centered with object-[78%_40%], desktop unchanged at object-[55%_center]
+- Header: Mobile gradient changed from left-to-right dark overlay to top-to-bottom for building centering
+- About: Complete redesign — added animated stat counters (500+ Students, 25+ Faculty, 10+ Years), decorative background gradient, editorial off-center heading
+- TwoInstitutions: Redesigned with colored left-border accents (gold/green), Lucide icons replacing bullet points, icon hover animations (bg color fill)
+- Academics: Complete redesign — interactive tabbed interface replacing numbered list, large detail card with ghost number, program icons (BookOpen, GraduationCap, Beaker, FlaskConical, Atom)
+- WhyMubarik: Redesigned with masonry-style grid (7+5, 5+7 col spans), animated icon badges that fill on hover, ghost background numbers, card-hover effects
+- Facilities: Complete redesign — full-width image carousel with auto-advance (5s), fade transitions, previous/next navigation arrows, progress dots, horizontal tab buttons below image
+- StudentLife: Redesigned with asymmetric 3+2 grid (featured card spans 3 cols, two stacked cards span 2), category badges on images, improved hover zoom
+- Admissions: Complete redesign — step cards with numbered badges, icons (hidden on desktop), connector arrows between steps, hover effects
+- NewsEvents: Redesigned with color-coded category badges (gold for Admissions, navy for Academic, green for Sports), card-hover animations
+- Leadership: Moved to dark navy background section, large portrait with gold accent line, DM Serif Display for quote text, decorative quotation mark
+- Footer: Logo enlarged to 56px with school name and subtitle displayed, social icons in rounded-lg backgrounds, improved spacing
+- AdmissionCTA: Subtle refinements, gold glow shadow on Apply button
+- Updated use-reveal hook: supports reveal, reveal-scale, reveal-left, reveal-right selectors, reduced threshold to 0.08
+- Enhanced reveal-delay system: 6 delay levels (0.08s to 0.48s) for more granular stagger
+- Removed ArrowUpRight import from StudentLife (unused)
+
+Stage Summary:
+- VLM analysis: "Likely built by a skilled Frontend Developer (or a very high-end template)"
+- All sections now have interactive elements, hover animations, and visual variety
+- No two sections look alike — breaking the "AI template" pattern
+- Desktop view fully verified: navbar visible, Apply Now prominent, building well-positioned
+- Mobile view: building centered, logo visible, Discover More button visible
+- Footer logo visible at 56px with branding text
+- All images loading correctly, no console errors, lint clean
+- Font system: DM Serif Display (headings) + Outfit (body) — professional and aesthetic

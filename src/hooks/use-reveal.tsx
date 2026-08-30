@@ -18,14 +18,16 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
     );
 
-    const children = el.querySelectorAll('.reveal');
+    // Observe all elements with reveal classes
+    const selectors = '.reveal, .reveal-scale, .reveal-left, .reveal-right';
+    const children = el.querySelectorAll(selectors);
     children.forEach((child) => observer.observe(child));
 
-    // Also observe the container itself if it has .reveal
-    if (el.classList.contains('reveal')) {
+    // Also observe the container itself if it has a reveal class
+    if (el.matches(selectors)) {
       observer.observe(el);
     }
 

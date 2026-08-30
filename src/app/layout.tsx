@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, Outfit, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700"],
+const dmSerif = DM_Serif_Display({
+  variable: "--font-serif",
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const outfit = Outfit({
+  variable: "--font-sans",
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -23,15 +23,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mubarik Science Academy | Building Minds, Shaping Futures",
-  description: "Mubarik Science Academy and Mubarik Educare School — providing quality education with a focus on academic excellence, scientific thinking, and character development in Pakistan.",
-  keywords: ["Mubarik Science Academy", "Mubarik Educare School", "education Pakistan", "science academy", "school admissions"],
+  description:
+    "Mubarik Science Academy and Mubarik Educare School — providing quality education with a focus on academic excellence, scientific thinking, and character development in Pakistan.",
+  keywords: [
+    "Mubarik Science Academy",
+    "Mubarik Educare School",
+    "education Pakistan",
+    "science academy",
+    "school admissions",
+  ],
   authors: [{ name: "Mubarik Science Academy" }],
   icons: {
     icon: "/mubarik-logo.png",
   },
   openGraph: {
     title: "Mubarik Science Academy",
-    description: "Building Minds, Shaping Futures. A quality educational institution in Pakistan.",
+    description:
+      "Building Minds, Shaping Futures. A quality educational institution in Pakistan.",
     type: "website",
   },
 };
@@ -44,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${jakarta.variable} ${geistMono.variable} antialiased`}
+        className={`${dmSerif.variable} ${outfit.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
